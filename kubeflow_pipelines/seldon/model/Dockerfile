@@ -2,6 +2,7 @@ FROM python:3.7-slim
 RUN apt-get update && apt-get install -y gcc python3-dev patch
 
 RUN mkdir /app
+RUN chown -R 8888 /app
 WORKDIR /app
 
 COPY requirements.txt /app/requirements.txt

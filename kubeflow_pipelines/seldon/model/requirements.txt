@@ -1,5 +1,5 @@
 seldon-core
-determined==0.13.6
+determined==0.18.1
 torch
 Pillow
 numpy
