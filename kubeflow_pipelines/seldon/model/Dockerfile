@@ -19,4 +19,5 @@ ENV PERSISTENCE 0
 
 COPY . /app
 
-CMD exec seldon-core-microservice $MODEL_NAME $API_TYPE --service-type $SERVICE_TYPE --persistence $PERSISTENCE
+#CMD exec seldon-core-microservice $MODEL_NAME $API_TYPE --service-type $SERVICE_TYPE --persistence $PERSISTENCE
+CMD ["sleep", "infinity"]

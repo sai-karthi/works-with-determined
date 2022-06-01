@@ -1,0 +1,30 @@
+seldon-core
+determined==0.18.1
+werkzeug==2.0.3
+torch
+Pillow
+numpy
+scikit-image
+torchvision
+python_pachyderm
+# Below is from internet example
+#flask==1.1.1
+#flask-ngrok 
+#scipy==1.1.0
+#matplotlib
+#Werkzeug==0.15.5
+#easydict==1.9
+#opencv_python
+#gevent==1.4.0
+#mxnet_mkl
+#tqdm==4.35.0 #1.2.1 
+#Pillow==6.1.0 
+#mtcnn_pytorch==1.0.2 
+#mxnet==1.5.0 
+#scikit_learn==0.21.3 
+#tensorboardX==1.8 
+#torch==1.9.0 
+#torchvision==0.10.0 
+#pyparsing==2.4.7 
+#numpy==1.20.0 
+#seldon-core==1.1.0

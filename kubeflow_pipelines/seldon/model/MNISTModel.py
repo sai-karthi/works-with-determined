@@ -29,10 +29,21 @@ class MNISTModel(object):
         Add any initialization parameters. These will be passed at runtime from the graph definition parameters defined in your seldondeployment kubernetes resource manifest.
         """
         logging.info(f"Loading model {model_name} from master at {det_master}")
-        checkpoint = Determined(master=det_master).get_model(model_name).get_version()
-        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        trial = checkpoint.load(map_location=self.device)
-        self.model = trial.model
+#        checkpoint = Determined(master=det_master).get_model(model_name).get_version()
+#        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+##        print(dir(checkpoint))
+#        print(self.device)
+#        print(checkpoint)
+#        trial = checkpoint.load(map_location=self.device)
+#        self.model = trial.model
+
+#        client = Determined(master=det_master, user='determined', password='')
+        client = Determined(master=det_master)
+        version = client.get_model(model_name).get_version()
+        checkpoint = version.checkpoint
+        checkpoint_dir = checkpoint.download()
+        self.model = load_trial_from_checkpoint_path(checkpoint_dir, map_location=torch.device('cpu'))
+
         logging.info("Loaded checkpoint")
         self.transform = get_transform()
 
