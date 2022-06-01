@@ -200,8 +200,7 @@ spec:
             if isinstance(bool_value, str):
                 return bool_value
             if not isinstance(bool_value, bool):
-                raise TypeError('Value "{}" has type "{}" instead of bool.'.format(
-                    str(bool_value), str(type(bool_value))))
+                raise TypeError('Value "{}" has type "{}" instead of bool.'.format(str(bool_value), str(type(bool_value))))
             return str(bool_value)
 
         import argparse
@@ -230,7 +229,7 @@ spec:
                 pass
             with open(output_file, 'w') as f:
                 f.write(_output_serializers[idx](_outputs[idx]))
-      image: jear/seldon-mnist:1.0
+      image: jear/detcli-0.18.1:1.0
     inputs:
       parameters:
       - {name: detmaster}
@@ -275,7 +274,7 @@ spec:
           = [_outputs]\n\n_output_serializers = [\n    _serialize_bool,\n\n]\n\nimport
           os\nfor idx, output_file in enumerate(_output_files):\n    try:\n        os.makedirs(os.path.dirname(output_file))\n    except
           OSError:\n        pass\n    with open(output_file, ''w'') as f:\n        f.write(_output_serializers[idx](_outputs[idx]))\n"],
-          "image": "jear/seldon-mnist:1.0"}}, "inputs": [{"name": "detmaster", "type":
+          "image": "jear/detcli-0.18.1:1.0"}}, "inputs": [{"name": "detmaster", "type":
           "String"}, {"name": "experiment_id", "type": "Integer"}, {"name": "model_name",
           "type": "String"}], "name": "Register", "outputs": [{"name": "Output", "type":
           "Boolean"}]}', pipelines.kubeflow.org/component_ref: '{}', pipelines.kubeflow.org/arguments.parameters: '{"detmaster":
@@ -326,8 +325,7 @@ spec:
             if isinstance(int_value, str):
                 return int_value
             if not isinstance(int_value, int):
-                raise TypeError('Value "{}" has type "{}" instead of int.'.format(
-                    str(int_value), str(type(int_value))))
+                raise TypeError('Value "{}" has type "{}" instead of int.'.format(str(int_value), str(type(int_value))))
             return str(int_value)
 
         import argparse
@@ -356,7 +354,7 @@ spec:
                 pass
             with open(output_file, 'w') as f:
                 f.write(_output_serializers[idx](_outputs[idx]))
-      image: jear/seldon-mnist:1.0
+      image: jear/detcli-0.18.1:1.0
       volumeMounts:
       - {mountPath: /src/, name: create-pipeline-volume}
     inputs:
@@ -404,7 +402,7 @@ spec:
           = [_outputs]\n\n_output_serializers = [\n    _serialize_int,\n\n]\n\nimport
           os\nfor idx, output_file in enumerate(_output_files):\n    try:\n        os.makedirs(os.path.dirname(output_file))\n    except
           OSError:\n        pass\n    with open(output_file, ''w'') as f:\n        f.write(_output_serializers[idx](_outputs[idx]))\n"],
-          "image": "jear/seldon-mnist:1.0"}}, "inputs": [{"name": "detmaster", "type":
+          "image": "detcli-0.18.1:1.0"}}, "inputs": [{"name": "detmaster", "type":
           "String"}, {"name": "config", "type": "String"}, {"name": "context", "type":
           "String"}], "name": "Run det and wait", "outputs": [{"name": "Output", "type":
           "Integer"}]}', pipelines.kubeflow.org/component_ref: '{}', pipelines.kubeflow.org/arguments.parameters: '{"config":
