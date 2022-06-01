@@ -10,6 +10,8 @@ RUN pip install -r requirements.txt
 
 RUN mkdir /.config && chmod 777 /.config && chmod -R 777 /app
 EXPOSE 5000
+EXPOSE 6000
+EXPOSE 9000
 
 # Define environment variable
 ENV MODEL_NAME MNISTModel
@@ -20,4 +22,5 @@ ENV PERSISTENCE 0
 COPY . /app
 
 #CMD exec seldon-core-microservice $MODEL_NAME $API_TYPE --service-type $SERVICE_TYPE --persistence $PERSISTENCE
-CMD ["sleep", "infinity"]
+CMD exec seldon-core-microservice $MODEL_NAME --service-type $SERVICE_TYPE 
+#CMD ["sleep", "infinity"]

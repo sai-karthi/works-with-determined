@@ -15,7 +15,7 @@ def main():
     parser.add_argument('namespace', type=str, help='deployment namespace')
     parser.add_argument('det_master', type=str, help='determined master address')
     parser.add_argument('model_name', type=str, help='experiment to deploy')
-    parser.add_argument('--image', type=str, help='model image', default='davidhershey/seldon-mnist:1.4')
+    parser.add_argument('--image', type=str, help='model image', default='jear/seldon-mnist:1.3.4')
     parser.add_argument('--local', action='store_true')
     args = parser.parse_args()
 
@@ -96,8 +96,10 @@ def main():
             sys.exit(-1)
 
     v1 = client.CoreV1Api()
-    svc = v1.read_namespaced_service('istio-ingressgateway', 'istio-system')
-    gateway = svc.to_dict()['status']['load_balancer']['ingress'][0]['hostname']
+#    svc = v1.read_namespaced_service('istio-ingressgateway', 'istio-system')
+    svc = v1.read_namespaced_service('seldon-lb-svc', 'istio-system')
+#    gateway = svc.to_dict()['status']['load_balancer']['ingress'][0]['hostname']
+    gateway = svc.to_dict()['status']['load_balancer']['ingress'][0]['ip']
     endpoint =  "http://" + gateway + f'/seldon/{args.namespace}/{args.name}/api/v1.0/predictions'
     with open('/tmp/endpoint.txt', 'w') as f:
         f.write(endpoint)

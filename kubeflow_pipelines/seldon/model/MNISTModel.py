@@ -1,4 +1,5 @@
 from determined.experimental import Determined
+from determined.pytorch import load_trial_from_checkpoint_path
 from PIL import Image
 import numpy as np
 import torch

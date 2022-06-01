@@ -12,7 +12,7 @@ metadata:
       "optional": true}, {"default": "mnist-prod", "name": "model_name", "optional":
       true}, {"default": "mnist-prod-kf", "name": "deployment_name", "optional": true},
       {"default": "default", "name": "deployment_namespace", "optional": true}, {"default":
-      "jear/seldon-mnist:1.0", "name": "image", "optional": true}], "name":
+      "jear/seldon-mnist:1.3.4", "name": "image", "optional": true}], "name":
       "Determined Train and Deploy"}'}
   labels: {pipelines.kubeflow.org/kfp_sdk_version: 1.8.12}
 spec:
@@ -50,7 +50,7 @@ spec:
       command: [python, create_seldon_deployment.py, '{{inputs.parameters.deployment_name}}',
         '{{inputs.parameters.deployment_namespace}}', '{{inputs.parameters.detmaster}}',
         '{{inputs.parameters.model_name}}', --image, '{{inputs.parameters.image}}']
-      image: jear/seldon-create:1.0
+      image: jear/seldon-create:1.1
       env:
       - {name: HTTPS_PROXY, value: 'http://172.28.6.17:3128'}
       - {name: HTTP_PROXY, value: 'http://172.28.6.17:3128'}
@@ -421,5 +421,5 @@ spec:
     - {name: model_name, value: mnist-prod}
     - {name: deployment_name, value: mnist-prod-kf}
     - {name: deployment_namespace, value: jerome-armand}
-    - {name: image, value: 'jear/seldon-mnist:1.0'}
+    - {name: image, value: 'jear/seldon-mnist:1.3.4'}
   serviceAccountName: pipeline-runner
