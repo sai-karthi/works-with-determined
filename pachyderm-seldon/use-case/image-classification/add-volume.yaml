@@ -392,6 +392,7 @@
                          "hostpath": {
                             "path": "/mapr_nfs/colo.edf.local/det-k8s/checkpoints",
                             "type": "Directory"
+                         }
                     },
                     {
                         "name": "pachyderm-storage-secret",
