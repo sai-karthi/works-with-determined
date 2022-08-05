@@ -416,18 +416,18 @@
                         },
                         "name": "det-checkpoints"
                     },
-                    {"name": "det-checkpoints",
-                         "hostpath": {
-                            "path": "/mapr_nfs/colo.edf.com/det-k8s/checkpoints",
-                            "type": "Directory"
-                         }
-                    },
                     {
                         "name": "pachyderm-storage-secret",
                         "secret": {
                             "defaultMode": 420,
                             "secretName": "pachyderm-storage-secret"
                         }
+                    }
+                    ,{"name": "det-checkpoints",
+                         "hostpath": {
+                            "path": "/mapr_nfs/colo.edf.com/det-k8s/checkpoints",
+                            "type": "Directory"
+                         }
                     }
                 ]
             }
