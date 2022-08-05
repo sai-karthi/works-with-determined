@@ -29,23 +29,21 @@
       }
     ]
   },
-  "pod_patch": [
-   {
-    \"op\": \"remove\",
-    \"path\": \"/spec/template/spec/volumes/4\"
+  "pod_patch": [{\"op\": \"remove\",
+    \"path\": \"/spec/template/spec/volumes/-\"
    },
    {
     \"op\": \"remove\",
-    \"path\": \"/spec/template/spec/volumes/3/hostpath\"
+    \"path\": \"/spec/template/spec/volumes/-/hostpath\"
    },
    {
     \"op\": \"replace\",
-    \"path\": \"/spec/template/spec/volumes/3/name\",
+    \"path\": \"/spec/template/spec/volumes/-/name\",
     \"value\": \"pachyderm-storage-secret\"
    },
    {
     \"op\": \"add\",
-    \"path\": \"/spec/template/spec/volumes/3/secret\",
+    \"path\": \"/spec/template/spec/volumes/-/secret\",
     \"value\": {
      \"defaultMode\": 420,
      \"secretName\": \"pachyderm-storage-secret\"
@@ -53,7 +51,7 @@
    },
    {
     \"op\": \"remove\",
-    \"path\": \"/spec/template/spec/containers/0/volumeMounts/4\"
+    \"path\": \"/spec/template/spec/containers/0/volumeMounts/-\"
    }
   ]
 
