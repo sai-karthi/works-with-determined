@@ -389,7 +389,7 @@
                     },
                         {"name": "det-checkpoints",
                          "hostpath": {
-                            "path": "/mapr_nfs/colo.edf.local/det-k8s/checkpoints",
+                            "path": "/mapr_nfs/colo.edf.com/det-k8s/checkpoints",
                             "type": "Directory"
                          }
                     },
