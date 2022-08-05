@@ -33,7 +33,7 @@
   "pod_patch": "[
    {
     \"op\": \"remove\",
-    \"path\": \"/spec/template/spec/volumes/-/secret\"
+    \"path\": \"/spec/template/spec/volumes/3/secret\"
    },
    {
     \"op\": \"replace\",
