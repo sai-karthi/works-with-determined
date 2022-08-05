@@ -33,16 +33,16 @@
   "pod_patch": "[
    {
     \"op\": \"remove\",
-    \"path\": \"/spec/template/spec/volumes/3/secret\"
+    \"path\": \"/spec/template/spec/volumes/-/secret\"
    },
    {
     \"op\": \"replace\",
-    \"path\": \"/spec/template/spec/volumes/3/name\",
+    \"path\": \"/spec/template/spec/volumes/-/name\",
     \"value\": \"det-checkpoints\"
    },
    {
     \"op\": \"add\",
-    \"path\": \"/spec/template/spec/volumes/3/hostpath\",
+    \"path\": \"/spec/template/spec/volumes/-/hostpath\",
     \"value\": {
      \"path\": \"/mapr_nfs/colo.edf.com/det-k8s/checkpoints\",
      \"type\": \"Directory\"
@@ -50,7 +50,7 @@
    },
    {
     \"op\": \"add\",
-    \"path\": \"/spec/template/spec/volumes/4\",
+    \"path\": \"/spec/template/spec/volumes/-\",
     \"value\": {
      \"name\": \"pachyderm-storage-secret\",
      \"secret\": {
@@ -61,7 +61,7 @@
    },
    {
     \"op\": \"add\",
-    \"path\": \"/spec/template/spec/containers/0/volumeMounts/4\",
+    \"path\": \"/spec/template/spec/containers/0/volumeMounts/-\",
     \"value\": {
      \"mountPath\": \"/determined_shared_fs\",
      \"name\": \"det-checkpoints\"
