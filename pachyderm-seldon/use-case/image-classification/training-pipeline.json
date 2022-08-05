@@ -48,7 +48,7 @@
   "pod_patch": "[
   {
    \"op\": \"add\",
-   \"path\": \"/volumes/5\",
+   \"path\": \"/volumes/-\",
    \"value\": {
     \"name\": \"det-checkpoints\",
     \"hostpath\": {
@@ -59,7 +59,7 @@
   },
   {
    \"op\": \"add\",
-   \"path\": \"/containers/0/volumeMounts/5\",
+   \"path\": \"/containers/0/volumeMounts/-\",
    \"value\": {
     \"mountPath\": \"/determined_shared_fs\",
     \"name\": \"det-checkpoints\"
