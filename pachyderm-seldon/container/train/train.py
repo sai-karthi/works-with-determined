@@ -131,11 +131,7 @@ def execute_experiment(client, configfile, code_path, checkpoint):
 
         print(f"Created experiment with id='{exp.id}' (parent_id='{parent_id}'). Waiting for its completion...")
 
-        best_checkpoint = exp.top_checkpoint()
-        print(f"best checkpoint was {best_checkpoint.uuid}")
 
-
-        print(f"Created experiment with id='{exp.id}' (parent_id='{parent_id}'). Waiting for its completion...")
 
 
         state = exp.wait()["experiment"]["state"]
