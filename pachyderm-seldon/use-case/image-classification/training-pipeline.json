@@ -7,7 +7,7 @@
   [
    {
     \"op\": \"remove\",
-    \"path\": \"/spec/template/spec/volumes/4\"
+    \"path\": \"/spec/template/spec/volumes/-\"
    },
    {
     \"op\": \"remove\",
@@ -28,9 +28,11 @@
    },
    {
     \"op\": \"remove\",
-    \"path\": \"/spec/template/spec/containers/0/volumeMounts/4\"
+    \"path\": \"/spec/template/spec/containers/0/volumeMounts/-\"
    }
   ],
+
+
   "description": "Detects changed files into a repository and triggers a retraining on that dataset",
   "input": {
     "pfs": {
