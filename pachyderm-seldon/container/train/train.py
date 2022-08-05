@@ -120,22 +120,16 @@ def create_client():
 
 # =====================================================================================
 
-def execute_experiment(client, configfile, code_path, checkpoint):
+def execute_experiment(client, configfile, code_path, parent_id):
     try:
-        if checkpoint is None:
-            parent_id = None
+        if parent_id is None:
             exp = client.create_experiment(configfile, code_path)
         else:
-            parent_id = checkpoint.training.experiment_id
-            exp = client.continue_experiment(configfile, parent_id, checkpoint.uuid)
+            exp = client.continue_experiment(configfile, parent_id)
 
         print(f"Created experiment with id='{exp.id}' (parent_id='{parent_id}'). Waiting for its completion...")
 
-
-
         state = exp.wait()
-        #state = exp.wait()["experiment"]["state"]
-        print(state)
         print(f"Experiment with id='{exp.id}' ended with the following state: {state}")
 
         if state == ExperimentState.COMPLETED:
@@ -145,6 +139,8 @@ def execute_experiment(client, configfile, code_path, checkpoint):
     except AssertionError:
         print("Experiment exited with abnormal state")
         return None
+
+
 
 # =====================================================================================
 
