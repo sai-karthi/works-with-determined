@@ -2,34 +2,6 @@
   "pipeline": {
     "name": "dogs-and-cats-model"
   },
-  "description": "Detects changed files into a repository and triggers a retraining on that dataset",
-  "input": {
-    "pfs": {
-      "name": "data",
-      "repo": "dogs-and-cats",
-      "branch": "master",
-      "glob": "/",
-      "empty_files": true
-    }
-  },  
-  "transform": {
-    "cmd": ["/bin/sh"],
-    "stdin": ["python train.py --git-url https://git@github.com:/JordanNanos/works-with-determined.git --git-ref master --sub-dir pachyderm-seldon/use-case/image-classification/experiment --config const.yaml --repo dogs-and-cats --model dogs-and-cats"],
-    "image": "work-06.ezm-se.cloudcoe.local:9001/pachyderm-seldon/train:0.0.1",
-    "secrets": [
-      {
-        "name": "pipeline-secret",
-        "key": "det_master",
-        "env_var": "DET_MASTER"
-      },
-      {
-        "name": "pipeline-secret",
-        "key": "det_user",
-        "env_var": "DET_USER"
-      }
-    ]    
-  },
-
 
   "pod_patch": 
   [
@@ -58,7 +30,34 @@
     "op": "remove",
     "path": "/spec/template/spec/containers/0/volumeMounts/4"
    }
-  ]
+  ],
+  "description": "Detects changed files into a repository and triggers a retraining on that dataset",
+  "input": {
+    "pfs": {
+      "name": "data",
+      "repo": "dogs-and-cats",
+      "branch": "master",
+      "glob": "/",
+      "empty_files": true
+    }
+  },  
+  "transform": {
+    "cmd": ["/bin/sh"],
+    "stdin": ["python train.py --git-url https://git@github.com:/JordanNanos/works-with-determined.git --git-ref master --sub-dir pachyderm-seldon/use-case/image-classification/experiment --config const.yaml --repo dogs-and-cats --model dogs-and-cats"],
+    "image": "work-06.ezm-se.cloudcoe.local:9001/pachyderm-seldon/train:0.0.1",
+    "secrets": [
+      {
+        "name": "pipeline-secret",
+        "key": "det_master",
+        "env_var": "DET_MASTER"
+      },
+      {
+        "name": "pipeline-secret",
+        "key": "det_user",
+        "env_var": "DET_USER"
+      }
+    ]    
+  }
   
 }
 
