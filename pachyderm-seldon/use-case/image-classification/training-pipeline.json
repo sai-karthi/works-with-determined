@@ -41,27 +41,7 @@
   },
 
 
-  "pod_patch": "[
-  {
-   \"op\": \"add\",
-   \"path\": \"/volumes/-\",
-   \"value\": {
-    \"name\": \"det-checkpoints\",
-    \"hostpath\": {
-     \"path\": \"/mapr_nfs/colo.edf.com/det-k8s/checkpoints\",
-     \"type\": \"Directory\"
-    }
-   }
-  },
-  {
-   \"op\": \"add\",
-   \"path\": \"/containers/0/volumeMounts/-\",
-   \"value\": {
-    \"mountPath\": \"/determined_shared_fs\",
-    \"name\": \"det-checkpoints\"
-   }
-  }
- ]"
+  "pod_patch": "[  {   \"op\": \"add\",   \"path\": \"/volumes/-\",   \"value\": {    \"name\": \"det-checkpoints\",    \"hostpath\": {     \"path\": \"/mapr_nfs/colo.edf.com/det-k8s/checkpoints\",     \"type\": \"Directory\"    }   }  },  {   \"op\": \"add\",   \"path\": \"/containers/0/volumeMounts/-\",   \"value\": {    \"mountPath\": \"/determined_shared_fs\",    \"name\": \"det-checkpoints\"   }  } ]"
 
 }
 
