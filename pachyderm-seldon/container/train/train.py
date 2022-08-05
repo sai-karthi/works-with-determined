@@ -133,8 +133,8 @@ def execute_experiment(client, configfile, code_path, checkpoint):
 
 
 
-
-        state = exp.wait()["experiment"]["state"]
+        state=exp.wait()
+        #state = exp.wait()["experiment"]["state"]
         print(state)
         print(f"Experiment with id='{exp.id}' ended with the following state: {state}")
 
