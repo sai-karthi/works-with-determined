@@ -189,7 +189,7 @@
                                 "name": "POSTGRES_HOST"
                             }
                         ],
-                        "image": "work-06.ezm-se.cloudcoe.local:9001/pachyderm-seldon/train:0.0.1",
+                        "image": "work-06.ezm-se.cloudcoe.local:9001/pachyderm-seldon/train:0.0.2",
                         "imagePullPolicy": "IfNotPresent",
                         "name": "user",
                         "resources": {
