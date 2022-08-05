@@ -26,6 +26,16 @@
         "name": "pipeline-secret",
         "key": "det_user",
         "env_var": "DET_USER"
+      },
+      {
+        "name": "pipeline-secret",
+        "key": "det_password",
+        "env_var": "DET_PASSWORD"
+      },
+      {
+        "name": "pipeline-secret",
+        "key": "pac_token",
+        "env_var": "PAC_TOKEN"
       }
     ]    
   },
