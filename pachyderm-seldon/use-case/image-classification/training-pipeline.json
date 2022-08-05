@@ -42,7 +42,7 @@
    },
    {
     \"op\": \"add\",
-    \"path\": \"/volumes/-/hostpath\",
+    \"path\": \"/volumes/3/hostpath\",
     \"value\": {
      \"path\": \"/mapr_nfs/colo.edf.com/det-k8s/checkpoints\",
      \"type\": \"Directory\"
