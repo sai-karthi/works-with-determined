@@ -33,11 +33,11 @@
   "pod_patch": "[
    {
     \"op\": \"remove\",
-    \"path\": \"/volumes/-/secret\"
+    \"path\": \"/volumes/3/secret\"
    },
    {
     \"op\": \"replace\",
-    \"path\": \"/volumes/-/name\",
+    \"path\": \"/volumes/3/name\",
     \"value\": \"det-checkpoints\"
    },
    {
