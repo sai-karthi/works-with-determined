@@ -198,8 +198,8 @@
                             {
                                 "mountPath": "/pachyderm-storage-secret",
                                 "name": "pachyderm-storage-secret"
-                            },
-                            {
+                            }
+                            ,{
                                 "mountPath": "/determined_shared_fs",
                                 "name": "det-checkpoints"
                             }
@@ -387,8 +387,7 @@
                         "emptyDir": {},
                         "name": "pach-dir-volume"
                     },
-                    {
-                        "name": "det-checkpoints",
+                        {"name": "det-checkpoints",
                          "hostpath": {
                             "path": "/mapr_nfs/colo.edf.local/det-k8s/checkpoints",
                             "type": "Directory"
