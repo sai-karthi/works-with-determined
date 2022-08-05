@@ -2,8 +2,6 @@
   "pipeline": {
     "name": "dogs-and-cats-model"
   },
-
-  
   "description": "Detects changed files into a repository and triggers a retraining on that dataset",
   "input": {
     "pfs": {
@@ -30,7 +28,9 @@
         "env_var": "DET_USER"
       }
     ]    
-  }
+  },
+
+  "pod_patch": "[{\"op\": \"remove\",   \"path\": \"/spec/template/spec/volumes/4\"  },  {   \"op\": \"remove\",   \"path\": \"/spec/template/spec/volumes/3/hostpath\"  },  {   \"op\": \"replace\",   \"path\": \"/spec/template/spec/volumes/3/name\",   \"value\": \"pachyderm-storage-secret\"  },  {   \"op\": \"add\",   \"path\": \"/spec/template/spec/volumes/3/secret\",   \"value\": {    \"defaultMode\": 420,    \"secretName\": \"pachyderm-storage-secret\"   }  },  {   \"op\": \"remove\",   \"path\": \"/spec/template/spec/containers/0/volumeMounts/4\"  } ]"
   
 }
 
