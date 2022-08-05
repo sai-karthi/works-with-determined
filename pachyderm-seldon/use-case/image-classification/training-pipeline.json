@@ -14,8 +14,10 @@
   },
   "transform": {
     "cmd": ["/bin/sh"],
-    "stdin": ["python train.py --git-url https://git@github.com:/determined-ai/works-with-determined.git --git-ref master --sub-dir pachyderm-seldon/use-case/image-classification/experiment --config const.yaml --repo dogs-and-cats --model dogs-and-cats"],
-    "image": "gcr.io/determined-ai/pachyderm-seldon/train:0.0.19",
+    #"stdin": ["python train.py --git-url https://git@github.com:/determined-ai/works-with-determined.git --git-ref master --sub-dir pachyderm-seldon/use-case/image-classification/experiment --config const.yaml --repo dogs-and-cats --model dogs-and-cats"],
+    "stdin": ["python train.py --git-url https://git@github.com:/JordanNanos/works-with-determined.git --git-ref master --sub-dir pachyderm-seldon/use-case/image-classification/experiment --config const.yaml --repo dogs-and-cats --model dogs-and-cats"],
+    #"image": "gcr.io/determined-ai/pachyderm-seldon/train:0.0.19",
+    "image": "work-06.ezm-se.cloudcoe.local:9001/pachyderm-seldon/train:0.0.1",
     "secrets": [
       {
         "name": "pipeline-secret",
@@ -27,16 +29,16 @@
         "key": "det_user",
         "env_var": "DET_USER"
       },
-      {
-        "name": "pipeline-secret",
-        "key": "det_password",
-        "env_var": "DET_PASSWORD"
-      },
-      {
-        "name": "pipeline-secret",
-        "key": "pac_token",
-        "env_var": "PAC_TOKEN"
-      }
+#      {
+#        "name": "pipeline-secret",
+#        "key": "det_password",
+#        "env_var": "DET_PASSWORD"
+#      },
+#      {
+#        "name": "pipeline-secret",
+#        "key": "pac_token",
+#        "env_var": "PAC_TOKEN"
+#      }
     ]
   }
 }
