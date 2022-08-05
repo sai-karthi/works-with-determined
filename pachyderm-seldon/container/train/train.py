@@ -131,7 +131,11 @@ def execute_experiment(client, configfile, code_path, checkpoint):
 
         print(f"Created experiment with id='{exp.id}' (parent_id='{parent_id}'). Waiting for its completion...")
 
+
+
         state = exp.wait()
+        print(state)
+        print(state["experiment"])
         print(f"Experiment with id='{exp.id}' ended with the following state: {state}")
 
         if state == ExperimentState.COMPLETED:
