@@ -19,7 +19,6 @@ class DeterminedClient(Determined):
         print(checkpoint_uuid)
         print(type(parent_id))
         print(parent_id)
-        print(parent_id.experiment_config)
         print(parent_id.experiment_id)
 
         print(parent_id.task_id)
