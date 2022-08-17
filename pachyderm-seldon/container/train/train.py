@@ -16,6 +16,7 @@ class DeterminedClient(Determined):
     def continue_experiment(self, config, parent_id, checkpoint_uuid):
         config["searcher"]["source_checkpoint_uuid"] = checkpoint_uuid
 
+        print(checkpoint_uuid)
         print(parent_id)
         print(parent_id.task_id)
         print(parent_id.allocation_id)
@@ -26,7 +27,7 @@ class DeterminedClient(Determined):
             json={
                 "activate": True,
                 "config": yaml.safe_dump(config),
-                "parentId": str(parent_id.metadata[2]),
+                "parentId": str(checkpoint_uuid),
             },
         )
 
