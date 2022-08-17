@@ -13,24 +13,19 @@ class DeterminedClient(Determined):
     def __init__(self, master, user, password):
         super().__init__(master=master, user=user, password=password)
 
-    def continue_experiment(self, config, parent_id, checkpoint_uuid):
+    def continue_experiment(self, config, parent_id, checkpoint_uuid, trial_id):
         config["searcher"]["source_checkpoint_uuid"] = checkpoint_uuid
 
         print(checkpoint_uuid)
         print(type(parent_id))
         print(parent_id)
-        print(parent_id.experiment_id)
-
-        print(parent_id.task_id)
-        print(parent_id.allocation_id)
-        print(parent_id.metadata)
 
         resp = self._session.post(
             "/api/v1/experiments",
             json={
                 "activate": True,
                 "config": yaml.safe_dump(config),
-                "parentId": str(parent_id.experiment_id),
+                "parentId": str(trial_id),
             },
         )
 
@@ -135,7 +130,7 @@ def execute_experiment(client, configfile, code_path, parent_id):
         if parent_id is None:
             exp = client.create_experiment(configfile, code_path)
         else:
-            exp = client.continue_experiment(configfile, parent_id, parent_id.uuid)
+            exp = client.continue_experiment(configfile, parent_id, parent_id.uuid, parent_id.trial_id)
 
         print(f"Created experiment with id='{exp.id}' (parent_id='{parent_id}'). Waiting for its completion...")
 
