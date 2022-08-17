@@ -20,7 +20,7 @@ class DeterminedClient(Determined):
             json={
                 "activate": True,
                 "config": yaml.safe_dump(config),
-                "parentId": parent_id.trail_id,
+                "parentId": parent_id.trial_id,
             },
         )
 
