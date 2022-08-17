@@ -241,6 +241,8 @@ def main():
     model  = get_or_create_model(client, args.model, pipeline, args.repo)
     exp    = run_experiment(client, config, workdir, model)
 
+    print(exp)
+    print(exp.id)
     if exp is None:
         print("Aborting pipeline as experiment did not succeed")
         return
