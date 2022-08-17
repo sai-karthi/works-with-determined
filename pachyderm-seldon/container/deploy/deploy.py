@@ -280,9 +280,13 @@ class SecretInfo:
 
 def main():
     args    = parse_args()
+    print(args)
     det     = DeterminedInfo()
+    print(det)
     model   = ModelInfo("/pfs/data/model-info.yaml")
+    print(model)
     secrets = SecretInfo()
+    print(secrets)
 
     print(f"Starting pipeline: deploy-name='{args.deploy_name}', model='{model.name}', version='{model.version}'")
 
