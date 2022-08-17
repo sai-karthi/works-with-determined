@@ -17,6 +17,8 @@ class DeterminedClient(Determined):
         config["searcher"]["source_checkpoint_uuid"] = checkpoint_uuid
 
         print(checkpoint_uuid)
+        print(type(parent_id))
+        print(yaml.safe_dump(parent_id))
         print(parent_id)
         print(parent_id.task_id)
         print(parent_id.allocation_id)
