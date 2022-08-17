@@ -13,7 +13,7 @@ class DeterminedClient(Determined):
     def __init__(self, master, user, password):
         super().__init__(master=master, user=user, password=password)
 
-    def continue_experiment(self, config, parent_id):
+    def continue_experiment(self, config, parent_id, checkpoint_uuid):
         config["searcher"]["source_checkpoint_uuid"] = checkpoint_uuid
         resp = self._session.post(
             "/api/v1/experiments",
@@ -121,6 +121,7 @@ def create_client():
 # =====================================================================================
 
 def execute_experiment(client, configfile, code_path, parent_id):
+    print("Parent ID = " + str(parent_id))
     try:
         if parent_id is None:
             exp = client.create_experiment(configfile, code_path)
