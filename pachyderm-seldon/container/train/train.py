@@ -19,13 +19,14 @@ class DeterminedClient(Determined):
         print(parent_id)
         print(parent_id.task_id)
         print(parent_id.allocation_id)
+        print(parent_id.task_id.trial_id)
 
         resp = self._session.post(
             "/api/v1/experiments",
             json={
                 "activate": True,
                 "config": yaml.safe_dump(config),
-                "parentId": str(parent_id.task_id),
+                "parentId": str(parent_id.task_id.trial_id),
             },
         )
 
