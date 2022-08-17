@@ -17,7 +17,7 @@ class DeterminedClient(Determined):
         config["searcher"]["source_checkpoint_uuid"] = checkpoint_uuid
 
         print(parent_id)
-        print(str(parent_id.trial_id))
+        print(parent_id.task_id)
 
         resp = self._session.post(
             "/api/v1/experiments",
