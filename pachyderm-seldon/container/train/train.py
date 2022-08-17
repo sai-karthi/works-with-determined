@@ -13,7 +13,7 @@ class DeterminedClient(Determined):
     def __init__(self, master, user, password):
         super().__init__(master=master, user=user, password=password)
 
-    def continue_experiment(self, config, parent_id, checkpoint_uuid, trial_id):
+    def continue_experiment(self, config, parent_id, checkpoint_uuid):
         config["searcher"]["source_checkpoint_uuid"] = checkpoint_uuid
 
         resp = self._session.post(
@@ -21,7 +21,7 @@ class DeterminedClient(Determined):
             json={
                 "activate": True,
                 "config": yaml.safe_dump(config),
-                "parentId": trial_id,
+                "parentId": parent_id,
             },
         )
 
