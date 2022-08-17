@@ -126,7 +126,7 @@ def execute_experiment(client, configfile, code_path, parent_id):
         if parent_id is None:
             exp = client.create_experiment(configfile, code_path)
         else:
-            exp = client.continue_experiment(configfile, parent_id, parent_id.uuid)
+            exp = client.continue_experiment(configfile, parent_id, str(parent_id.uuid))
 
         print(f"Created experiment with id='{exp.id}' (parent_id='{parent_id}'). Waiting for its completion...")
 
