@@ -122,7 +122,6 @@ def create_client():
 
 def execute_experiment(client, configfile, code_path, parent_id):
     print("Parent ID = " + str(parent_id))
-    print(parent_id.trial_id)
     print(parent_id.Checkpoint.trial_id)
     try:
         if parent_id is None:
