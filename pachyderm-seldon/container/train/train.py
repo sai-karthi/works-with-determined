@@ -18,8 +18,11 @@ class DeterminedClient(Determined):
 
         print(checkpoint_uuid)
         print(type(parent_id))
-        print(yaml.safe_dump(parent_id))
         print(parent_id)
+        print(parent_id.session)
+        print(parent_id.experiment_config)
+        print(parent_id.experiment_id)
+
         print(parent_id.task_id)
         print(parent_id.allocation_id)
         print(parent_id.metadata)
@@ -29,7 +32,7 @@ class DeterminedClient(Determined):
             json={
                 "activate": True,
                 "config": yaml.safe_dump(config),
-                "parentId": str(checkpoint_uuid),
+                "parentId": str(parent_id.experiment_id),
             },
         )
 
