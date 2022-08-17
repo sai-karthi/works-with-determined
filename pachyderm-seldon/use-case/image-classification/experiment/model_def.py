@@ -28,6 +28,7 @@ class DogCatModel(PyTorchTrial):
 
         if load_weights:
             files = self.download_data()
+            print("HELLO!!!" + str(files))
             if len(files) == 0:
                 print("No data. Aborting training.")
                 raise InvalidHP("No data")

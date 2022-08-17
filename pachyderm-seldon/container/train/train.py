@@ -241,14 +241,14 @@ def main():
     model  = get_or_create_model(client, args.model, pipeline, args.repo)
     exp    = run_experiment(client, config, workdir, model)
 
-    print(exp)
-    print(exp.id)
+    print("Hello, exp = " + exp)
+    print("Hello, exp.id = " + exp.id)
     if exp is None:
         print("Aborting pipeline as experiment did not succeed")
         return
 
     # --- Get best checkpoint from experiment. It may not exist if the experiment did not succeed
-
+    
     checkpoint = get_checkpoint(exp)
 
     if checkpoint is None:

@@ -41,6 +41,8 @@ def download_pach_repo(pachyderm_host, pachyderm_port, repo, branch, root, token
     if not os.path.exists(root):
         os.makedirs(root)
 
+    print("Made it here")
+
     client = python_pachyderm.Client(host=pachyderm_host, port=pachyderm_port, auth_token=token)
     files  = []
 
