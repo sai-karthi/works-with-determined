@@ -121,16 +121,18 @@ def create_client():
 
 # =====================================================================================
 
-def execute_experiment(client, configfile, code_path, parent_id):
+def execute_experiment(client, configfile, code_path, checkpoint):
     try:
-        if parent_id is None:
+        if checkpoint is None:
+            parent_id = None
             exp = client.create_experiment(configfile, code_path)
         else:
             print(parent_id)
             print(client)
             print(configfile)
             print(code_path)
-            exp = client.continue_experiment(configfile, parent_id, parent_id.uuid)
+            parent_id = checkpoint.training.experiment_id
+            exp = client.continue_experiment(configfile, parent_id, checkpoint.uuid)
 
         print(f"Created experiment with id='{exp.id}' (parent_id='{parent_id}'). Waiting for its completion...")
 
@@ -163,7 +165,7 @@ def run_experiment(client, configfile, code_path, model):
     else:
         print("Continuing experiment on DeterminedAI...")
         trial_id = client.get_checkpoint
-        return execute_experiment(client, configfile, None, model.model_id)
+        return execute_experiment(client, configfile, None, version.checkpoint)
 
 # =====================================================================================
 
