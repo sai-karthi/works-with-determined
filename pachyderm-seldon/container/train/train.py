@@ -127,10 +127,6 @@ def execute_experiment(client, configfile, code_path, checkpoint):
             parent_id = None
             exp = client.create_experiment(configfile, code_path)
         else:
-            print(parent_id)
-            print(client)
-            print(configfile)
-            print(code_path)
             parent_id = checkpoint.training.experiment_id
             exp = client.continue_experiment(configfile, parent_id, checkpoint.uuid)
 
