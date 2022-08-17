@@ -152,13 +152,14 @@ def execute_experiment(client, configfile, code_path, parent_id):
 
 def run_experiment(client, configfile, code_path, model):
     version = model.get_version()
+    print(version)
 
     if version is None:
         print("Creating a new experiment on DeterminedAI...")
         return execute_experiment(client, configfile, code_path, None)
     else:
         print("Continuing experiment on DeterminedAI...")
-        return execute_experiment(client, configfile, None, version.checkpoint)
+        return execute_experiment(client, configfile, None, version.checkpoint.trial_id)
 
 # =====================================================================================
 
