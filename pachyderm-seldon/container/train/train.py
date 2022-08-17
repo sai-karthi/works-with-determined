@@ -123,7 +123,6 @@ def create_client():
 def execute_experiment(client, configfile, code_path, parent_id):
     print("Parent ID = " + str(parent_id))
     print(str(parent_id))
-    print((parent_id[2]))
     try:
         if parent_id is None:
             exp = client.create_experiment(configfile, code_path)
