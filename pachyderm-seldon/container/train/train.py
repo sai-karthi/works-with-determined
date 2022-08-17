@@ -130,7 +130,7 @@ def execute_experiment(client, configfile, code_path, parent_id):
             print(client)
             print(configfile)
             print(code_path)
-            exp = client.continue_experiment(configfile, parent_id, parent_id.uuid, trial_id=154)
+            exp = client.continue_experiment(configfile, parent_id, parent_id.uuid, trial_id=157)
 
         print(f"Created experiment with id='{exp.id}' (parent_id='{parent_id}'). Waiting for its completion...")
 
