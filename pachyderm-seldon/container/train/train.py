@@ -150,17 +150,12 @@ def execute_experiment(client, configfile, code_path, checkpoint):
 
 def run_experiment(client, configfile, code_path, model):
     version = model.get_version()
-    print(version)
-    print(str(version))
-    print(version.checkpoint)
-    print(model.model_id)
 
     if version is None:
         print("Creating a new experiment on DeterminedAI...")
         return execute_experiment(client, configfile, code_path, None)
     else:
         print("Continuing experiment on DeterminedAI...")
-        trial_id = client.get_checkpoint
         return execute_experiment(client, configfile, None, version.checkpoint)
 
 # =====================================================================================
