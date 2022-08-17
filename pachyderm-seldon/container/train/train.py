@@ -15,12 +15,15 @@ class DeterminedClient(Determined):
 
     def continue_experiment(self, config, parent_id, checkpoint_uuid):
         config["searcher"]["source_checkpoint_uuid"] = checkpoint_uuid
+
+        print(parent_id)
+        
         resp = self._session.post(
             "/api/v1/experiments",
             json={
                 "activate": True,
                 "config": yaml.safe_dump(config),
-                "parentId": parent_id.trial_id,
+                "parentId": parent_id,
             },
         )
 
