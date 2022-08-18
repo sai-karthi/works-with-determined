@@ -114,12 +114,12 @@ class MRIUnetTrial(PyTorchTrial):
     # -------------------------------------------------------------------------
 
     def build_training_data_loader(self) -> DataLoader:
-        return DataLoader(self.train_ds, batch_size=self.context.get_per_slot_batch_size())
+        return DataLoader(self.train_dataset, batch_size=self.context.get_per_slot_batch_size())
 
     # -------------------------------------------------------------------------
 
     def build_validation_data_loader(self) -> DataLoader:
-        return DataLoader(self.val_ds, batch_size=self.context.get_per_slot_batch_size())
+        return DataLoader(self.val_dataset, batch_size=self.context.get_per_slot_batch_size())
 
     # -------------------------------------------------------------------------
 
