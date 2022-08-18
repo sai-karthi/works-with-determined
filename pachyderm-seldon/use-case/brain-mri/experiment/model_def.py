@@ -22,8 +22,8 @@ class MRIUnetTrial(PyTorchTrial):
         self.download_directory = self.config["data_dir"]
         data_config = self.context.get_data_config()
         print(data_config)
-        data_dir = os.path.join(self.download_directory, 'data')
-        #data_dir = self.download_directory
+        #data_dir = os.path.join(self.download_directory, 'data')
+        data_dir = self.download_directory
         print(data_dir)
 
         print("HEYOOOOO")
