@@ -71,10 +71,16 @@ def get_train_val_datasets(data_dir, seed, validation_ratio=0.2):
                 dirs.append(root.replace(data_dir, ''))
                 masks.append(file)
                 images.append(file.replace("_mask", ""))
-                
+
+    print(dirs)
+    print(images)
+    print(masks)
+
     PathDF = pd.DataFrame({'directory': dirs,
                           'images': images,
                           'masks': masks})
+
+    print(PathDF)
 
     train_df, valid_df = train_test_split(PathDF, random_state=seed,
                                      test_size = validation_ratio)
