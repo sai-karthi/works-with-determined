@@ -135,7 +135,7 @@ class MRIUnetTrial(PyTorchTrial):
     def download_data(self):
         data_config = self.context.get_data_config()
         print(data_config)
-        data_dir = self.download_directory
+        data_dir = os.path.join(self.download_directory, 'data')
         print(data_dir)
 
 
