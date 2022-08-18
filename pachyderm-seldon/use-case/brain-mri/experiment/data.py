@@ -69,7 +69,7 @@ def get_train_val_datasets(data_dir, seed, validation_ratio=0.2):
     for root, folders, files in  os.walk(data_dir):
         for file in files:
             if 'mask' in file:
-                dirs.append(root.replace(data_dir, ''))
+                dirs.append(data_dir, '')
                 masks.append(file)
                 images.append(file.replace("_mask", ""))
 
