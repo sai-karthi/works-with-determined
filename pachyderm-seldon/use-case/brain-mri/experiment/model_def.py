@@ -22,12 +22,18 @@ class MRIUnetTrial(PyTorchTrial):
 
         self.download_data()
 
+        print("!!! Got here")
+        print(self.download_directory)
+
         self.train_dataset, self.val_dataset = data.get_train_val_datasets(self.download_directory,
                                                                            self.context.get_hparam("split_seed"),
                                                                            self.context.get_hparam("validation_ratio"))
         
 #        self.download_directory = torch.hub.get_dir()
-        
+        print("!!! Got here")
+        print(self.download_directory)
+
+
         if not os.path.exists(self.download_directory):
             os.makedirs(self.download_directory)
             
