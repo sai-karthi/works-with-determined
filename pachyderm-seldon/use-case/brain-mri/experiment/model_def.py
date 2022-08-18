@@ -26,7 +26,7 @@ class MRIUnetTrial(PyTorchTrial):
                                                                            self.context.get_hparam("split_seed"),
                                                                            self.context.get_hparam("validation_ratio"))
         
-        self.download_directory = torch.hub.get_dir()
+#        self.download_directory = torch.hub.get_dir()
         
         if not os.path.exists(self.download_directory):
             os.makedirs(self.download_directory)
