@@ -13,7 +13,7 @@
   },
   "transform": {
     "cmd": ["/bin/sh"],
-    "stdin": ["python deploy.py --deploy-name dogcat-deploy --detect-bucket-uri https://mapr-00.ezm-se.cloudcoe.local:9000/pachyderm --detect-batch-size 4 --serving-image  work-06.ezm-se.cloudcoe.local:9001/pachyderm-seldon/serve:0.0.1"],
+    "stdin": ["python deploy.py --deploy-name dogcat-deploy --detect-bucket-uri mapr-00.ezm-se.cloudcoe.local:9000/pachyderm --detect-batch-size 4 --serving-image  work-06.ezm-se.cloudcoe.local:9001/pachyderm-seldon/serve:0.0.1"],
     "image": "work-06.ezm-se.cloudcoe.local:9001/pachyderm-seldon/deploy:0.0.2",
     "secrets": [ 
       {
@@ -47,5 +47,8 @@
         "env_var": "SEL_NAMESPACE"
       }
     ]
-  }
+  },
+
+  "pod_patch": "[  {   \"op\": \"add\",   \"path\": \"/volumes/-\",   \"value\": {    \"name\": \"det-checkpoints\",    \"hostpath\": {     \"path\": \"/mapr_nfs/colo.edf.com/det-k8s/checkpoints\",     \"type\": \"Directory\"    }   }  },  {   \"op\": \"add\",   \"path\": \"/containers/0/volumeMounts/-\",   \"value\": {    \"mountPath\": \"/determined_shared_fs\",    \"name\": \"det-checkpoints\"   }  } ]"
+
 }
