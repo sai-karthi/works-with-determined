@@ -2,9 +2,13 @@ name: MRI-test1-on-prem-1GPU
 workspace: nanos 
 project: brain-mri
 data:
-  data_dir:  '/data/lgg-mri-segmentation/kaggle_3m/'
-  repo: 'mateuszbuda/brain-segmentation-pytorch'
-  model: 'unet'
+    pachyderm:
+      host:
+      port:
+      repo:
+      branch:
+      token:
+labels:
 hyperparameters:
   global_batch_size: 32
   init_features: 32
