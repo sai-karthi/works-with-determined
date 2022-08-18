@@ -15,7 +15,7 @@
   "transform": {
     "cmd": ["/bin/sh"],
     "stdin": ["python train.py --git-url https://git@github.com:/JordanNanos/works-with-determined.git --git-ref master --sub-dir pachyderm-seldon/use-case/brain-mri/experiment --config const.yaml --repo brain-mri --model brain-mri"],
-    "image": "work-06.ezm-se.cloudcoe.local:9001/pachyderm-seldon/brain-mri/train:0.0.47",
+    "image": "work-06.ezm-se.cloudcoe.local:9001/pachyderm-seldon/train:0.0.47",
     "secrets": [
       {
         "name": "pipeline-secret",
