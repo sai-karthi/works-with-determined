@@ -19,7 +19,7 @@ class MRIUnetTrial(PyTorchTrial):
         self.config = self.context.get_data_config()
         
         #self.download_directory = f"/tmp/data-rank{self.context.distributed.get_rank()}"
-        self.download_directory = self.config("data_dir")
+        self.download_directory = self.config["data_dir"]
         data_config = self.context.get_data_config()
         print(data_config)
         data_dir = os.path.join(self.download_directory, 'data')
