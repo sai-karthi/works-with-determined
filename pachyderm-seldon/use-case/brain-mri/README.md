@@ -1,7 +1,9 @@
-# Determined Helm Chart
+# Brain MRI Training Pipeline Example
 
-Helm chart for installing Determined on Kubernetes.
 
-[Installation instructions](https://docs.determined.ai/latest/how-to/installation/kubernetes.html)
+From: https://www.kaggle.com/datasets/mateuszbuda/lgg-mri-segmentation
 
-[Chart Configurations](https://docs.determined.ai/latest/reference/helm-config.html)
+Download data
+```
+kaggle datasets download -d mateuszbuda/lgg-mri-segmentation 
+```
