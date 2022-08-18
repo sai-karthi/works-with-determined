@@ -25,6 +25,7 @@ class MRIUnetTrial(PyTorchTrial):
         #data_dir = os.path.join(self.download_directory, 'data')
         data_dir = self.download_directory
         print(data_dir)
+        self.data_dir=data_dir
 
         print("HEYOOOOO")
         des = self.download_data(data_config, data_dir)
