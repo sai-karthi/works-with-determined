@@ -22,7 +22,7 @@ class MRIUnetTrial(PyTorchTrial):
 
         des = self.download_data()
 
-        print("des = " + str(des))
+        print(str(des))
         print("!!! Got here")
         print(self.download_directory)
         print(self.context.get_hparam("split_seed"))
