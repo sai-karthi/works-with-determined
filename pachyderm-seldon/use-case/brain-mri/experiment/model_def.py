@@ -18,15 +18,16 @@ class MRIUnetTrial(PyTorchTrial):
         self.context = context
         self.config = self.context.get_data_config()
         
-        self.download_directory = f"/tmp/data-rank{self.context.distributed.get_rank()}"
-
+        #self.download_directory = f"/tmp/data-rank{self.context.distributed.get_rank()}"
+        #self.download_directory = f""
+        print("HEYOOOOO")
         des = self.download_data()
 
         print(str(des))
         print("!!! Got here")
         print(self.download_directory)
         print(self.context.get_hparam("split_seed"))
-        print(self.context.get_hparam("split_seed"))
+        print(self.context.get_hparam("validation_ratio"))
 
         self.train_dataset, self.val_dataset = data.get_train_val_datasets(self.download_directory,
                                                                            self.context.get_hparam("split_seed"),
