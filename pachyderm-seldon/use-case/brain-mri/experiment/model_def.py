@@ -131,7 +131,10 @@ class MRIUnetTrial(PyTorchTrial):
 
     def download_data(self):
         data_config = self.context.get_data_config()
+        print(data_config)
         data_dir = self.download_directory
+        print(data_dir)
+
 
         files = download_pach_repo(
             data_config['pachyderm']['host'],
@@ -143,6 +146,8 @@ class MRIUnetTrial(PyTorchTrial):
         )
         print(f'Data dir set to : {data_dir}')
 
+
+        print(files)
         return [des for src, des in files ]
 
     # -------------------------------------------------------------------------
