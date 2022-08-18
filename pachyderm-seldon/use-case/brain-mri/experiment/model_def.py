@@ -8,6 +8,8 @@ from torch import optim
 from determined.pytorch import DataLoader, PyTorchTrial, PyTorchTrialContext
 
 import data
+from data import download_pach_repo
+
 
 TorchData = Union[Dict[str, torch.Tensor], Sequence[torch.Tensor], torch.Tensor]
 
