@@ -125,7 +125,7 @@ class MRIUnetTrial(PyTorchTrial):
 
     def download_data(self):
         data_config = self.context.get_data_config()
-        data_dir = os.path.join(self.download_directory, 'data')
+        data_dir = self.download_directory
 
         files = download_pach_repo(
             data_config['pachyderm']['host'],
