@@ -19,9 +19,14 @@ class MRIUnetTrial(PyTorchTrial):
         self.config = self.context.get_data_config()
         
         #self.download_directory = f"/tmp/data-rank{self.context.distributed.get_rank()}"
-        self.download_directory = f""
+        self.download_directory = self.config.data_dir
+        data_config = self.context.get_data_config()
+        print(data_config)
+        data_dir = os.path.join(self.download_directory, 'data')
+        print(data_dir)
+
         print("HEYOOOOO")
-        des = self.download_data()
+        des = self.download_data(data_config, data_dir)
 
         print(str(des))
         print("!!! Got here")
@@ -133,11 +138,8 @@ class MRIUnetTrial(PyTorchTrial):
 
     # -------------------------------------------------------------------------
 
-    def download_data(self):
-        data_config = self.context.get_data_config()
-        print(data_config)
-        data_dir = os.path.join(self.download_directory, 'data')
-        print(data_dir)
+    def download_data(self, data_config, data_dir):
+   
 
 
         files = download_pach_repo(

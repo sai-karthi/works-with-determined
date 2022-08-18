@@ -2,7 +2,7 @@ name: MRI-test1-on-prem-1GPU
 workspace: nanos 
 project: brain-mri
 data:
-  data_dir:  ''
+  data_dir:  '/tmp'
   repo: 'mateuszbuda/brain-segmentation-pytorch'
   model: 'unet'
   pachyderm:
