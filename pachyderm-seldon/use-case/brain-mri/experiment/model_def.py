@@ -31,7 +31,7 @@ class MRIUnetTrial(PyTorchTrial):
         full_dir = ""
         full_dir = os.path.join(full_dir, download_dir, data_dir)
 
-        print("full_dir" + full_dir)
+        print("full_dir = " + full_dir)
 
         des = self.download_data(data_config, full_dir)
 
