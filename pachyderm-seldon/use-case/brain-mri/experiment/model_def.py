@@ -31,6 +31,8 @@ class MRIUnetTrial(PyTorchTrial):
 
         full_dir = os.path.join(download_dir, data_dir)
 
+        print("full_dir" + full_dir)
+
         des = self.download_data(data_config, full_dir)
 
         print(str(des))
@@ -159,9 +161,6 @@ class MRIUnetTrial(PyTorchTrial):
             data_config["pachyderm"]["token"]
         )
         print(f'Data dir set to : {data_dir}')
-
-
-        print(files)
         return [des for src, des in files ]
 
     # -------------------------------------------------------------------------
