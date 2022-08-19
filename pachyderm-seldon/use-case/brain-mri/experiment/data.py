@@ -37,7 +37,7 @@ class MRI_Dataset(Dataset):
         
         print(self)
 
-        base_path = os.path.join(self.data_dir, self.path_df.iloc[idx]['directory'])
+        base_path = os.path.join(self.data_dir, self.path_df.iloc[idx]['directory'].strip("/"))
         print(" !!!! base_path = " + base_path)
         img_path = os.path.join(base_path, self.path_df.iloc[idx]['images'])
         mask_path = os.path.join(base_path, self.path_df.iloc[idx]['masks'])
@@ -94,6 +94,9 @@ def get_train_val_datasets(download_dir, data_dir, seed, validation_ratio=0.2):
     train_df, valid_df = train_test_split(PathDF, random_state=seed,
                                      test_size = validation_ratio)
     
+
+    print("full_dir going in here is: " + full_dir)
+
     train_data = MRI_Dataset(train_df, full_dir, transform=PairedToTensor())
     valid_data = MRI_Dataset(valid_df, full_dir, transform=PairedToTensor())
     
