@@ -132,3 +132,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+pachyderm-seldon/container/train/debug.py
