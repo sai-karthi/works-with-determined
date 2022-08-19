@@ -5,6 +5,7 @@ data:
   data_dir:  '/data'
   repo: 'mateuszbuda/brain-segmentation-pytorch'
   model: 'unet'
+  download_directory: '/tmp'
   pachyderm:
     host:
     port:

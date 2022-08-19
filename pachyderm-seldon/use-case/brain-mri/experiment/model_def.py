@@ -18,16 +18,16 @@ class MRIUnetTrial(PyTorchTrial):
         self.context = context
         self.config = self.context.get_data_config()
         
-        self.download_directory = f"/tmp/data-rank{self.context.distributed.get_rank()}"
+        #self.download_directory = f"/tmp/data-rank{self.context.distributed.get_rank()}"
         #self.download_directory = self.config["data_dir"]
         data_config = self.context.get_data_config()
         print(data_config)
         #data_dir = os.path.join(self.download_directory, 'data')
-        data_dir = self.download_directory
-        print(data_dir)
+        download_dir = self.download_directory
+        print(download_dir)
 
         print("HEYOOOOO")
-        des = self.download_data(data_config, data_dir)
+        des = self.download_data(data_config, download_dir)
 
         print(str(des))
         print("!!! Got here")
@@ -35,13 +35,16 @@ class MRIUnetTrial(PyTorchTrial):
         print(self.context.get_hparam("split_seed"))
         print(self.context.get_hparam("validation_ratio"))
 
+        print("Download Directory = " + download_dir)
+
         self.train_dataset, self.val_dataset = data.get_train_val_datasets(self.download_directory,
-                                                                           self.context.get_hparam("split_seed"),
-                                                                           self.context.get_hparam("validation_ratio"))
+                self.data_directory,
+                self.context.get_hparam("split_seed"),
+                self.context.get_hparam("validation_ratio"))
         
 #        self.download_directory = torch.hub.get_dir()
         print("!!! and Got here")
-        print(self.download_directory)
+        print(download_dir)
 
 
         if not os.path.exists(self.download_directory):

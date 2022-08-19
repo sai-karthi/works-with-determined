@@ -65,14 +65,16 @@ class PairedToTensor():
         mask = mask/255
         return img, mask
     
-def get_train_val_datasets(data_dir, seed, validation_ratio=0.2):
+def get_train_val_datasets(download_dir, data_dir, seed, validation_ratio=0.2):
     
     dirs, images, masks = [], [], []
 
-    for root, folders, files in  os.walk(data_dir):
+    full_dir = os.path.join(download_dir, data_dir)
+
+    for root, folders, files in  os.walk(full_dir):
         for file in files:
             if 'mask' in file:
-                dirs.append(root.replace(data_dir, ''))
+                dirs.append(root.replace(full_dir, ''))
                 masks.append(file)
                 images.append(file.replace("_mask", ""))
 
