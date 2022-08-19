@@ -1,12 +1,12 @@
 {
   "pipeline": {
-    "name": "brain-mri-model"
+    "name": "brain-mri-train"
   },
   "description": "Detects changed files into a repository and triggers a retraining on that dataset",
   "input": {
     "pfs": {
       "name": "data",
-      "repo": "brain-mri",
+      "repo": "brain-mri-new",
       "branch": "master",
       "glob": "/",
       "empty_files": true
@@ -14,7 +14,7 @@
   },  
   "transform": {
     "cmd": ["/bin/sh"],
-    "stdin": ["python train.py --git-url https://git@github.com:/JordanNanos/works-with-determined.git --git-ref master --sub-dir pachyderm-seldon/use-case/brain-mri/experiment --config const.yaml --repo brain-mri --model brain-mri"],
+    "stdin": ["python train.py --git-url https://git@github.com:/JordanNanos/works-with-determined.git --git-ref master --sub-dir pachyderm-seldon/use-case/brain-mri/experiment --config const.yaml --repo brain-mri-new --model brain-mri"],
     "image": "work-06.ezm-se.cloudcoe.local:9001/pachyderm-seldon/train:0.0.47",
     "secrets": [
       {
