@@ -35,7 +35,10 @@ class MRI_Dataset(Dataset):
     
     def __getitem__(self, idx):
         
-        base_path = os.path.join(self.data_dir, self.path_df.iloc[idx]['directory'])
+        print(self)
+        print(self.download_directory)
+
+        base_path = os.path.join(self.download_directory, self.data_dir, self.path_df.iloc[idx]['directory'])
         print(" !!!! base_path = " + base_path)
         img_path = os.path.join(base_path, self.path_df.iloc[idx]['images'])
         mask_path = os.path.join(base_path, self.path_df.iloc[idx]['masks'])
