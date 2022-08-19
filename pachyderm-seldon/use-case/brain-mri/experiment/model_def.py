@@ -30,7 +30,7 @@ class MRIUnetTrial(PyTorchTrial):
         print("HEYOOOOO")
 
         full_dir = "/"
-        os.path.join(full_dir, download_dir.strip("/"), data_dir.strip("/"))
+        full_dir = os.path.join(full_dir, download_dir.strip("/"), data_dir.strip("/"))
 
         print("full_dir = " + full_dir)
 
