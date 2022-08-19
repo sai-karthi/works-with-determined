@@ -51,8 +51,8 @@ class MRIUnetTrial(PyTorchTrial):
         print(download_dir)
 
 
-        if not os.path.exists(self.download_directory):
-            os.makedirs(self.download_directory)
+        if not os.path.exists(full_dir):
+            os.makedirs(full_dir)
             
         with filelock.FileLock(os.path.join(self.download_directory, "download.lock")):
             model = torch.hub.load(self.config["repo"],
