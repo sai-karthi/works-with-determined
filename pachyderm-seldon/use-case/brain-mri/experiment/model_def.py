@@ -54,7 +54,7 @@ class MRIUnetTrial(PyTorchTrial):
         if not os.path.exists(full_dir):
             os.makedirs(full_dir)
             
-        with filelock.FileLock(os.path.join(self.download_directory, "download.lock")):
+        with filelock.FileLock(os.path.join(full_dir, "download.lock")):
             model = torch.hub.load(self.config["repo"],
                                    self.config["model"],
                                    in_channels=self.context.get_hparam("input_channels"),
