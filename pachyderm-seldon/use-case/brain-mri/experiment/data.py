@@ -68,8 +68,10 @@ def get_train_val_datasets(download_dir, data_dir, seed, validation_ratio=0.2):
     
     dirs, images, masks = [], [], []
 
-    full_dir = os.path.join(download_dir, data_dir)
 
+    full_dir = "/"
+    full_dir = os.path.join(full_dir, download_dir.strip("/"), data_dir.strip("/"))
+    
     print("full_dir = " + full_dir)
 
     for root, folders, files in  os.walk(full_dir):
