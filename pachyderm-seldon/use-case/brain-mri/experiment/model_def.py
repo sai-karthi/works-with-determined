@@ -23,22 +23,23 @@ class MRIUnetTrial(PyTorchTrial):
         data_config = self.context.get_data_config()
         print(data_config)
         #data_dir = os.path.join(self.download_directory, 'data')
-        download_dir = self.download_directory
-        print(download_dir)
-
+        download_dir = self.config["download_directory"]
+        data_dir = self.config["data_dir"]
+        print("download_dir = " + download_dir)
+        print("data_dir = " + data_dir)
         print("HEYOOOOO")
         des = self.download_data(data_config, download_dir)
 
         print(str(des))
         print("!!! Got here")
-        print(self.download_directory)
+        #print(self.download_directory)
         print(self.context.get_hparam("split_seed"))
         print(self.context.get_hparam("validation_ratio"))
 
         print("Download Directory = " + download_dir)
 
-        self.train_dataset, self.val_dataset = data.get_train_val_datasets(self.download_directory,
-                self.data_directory,
+        self.train_dataset, self.val_dataset = data.get_train_val_datasets(download_dir,
+                data_dir,
                 self.context.get_hparam("split_seed"),
                 self.context.get_hparam("validation_ratio"))
         
