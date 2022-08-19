@@ -107,46 +107,13 @@ class MRIUnetTrial(PyTorchTrial):
     # -------------------------------------------------------------------------
     
     ### MODEL_DEF from image-classification below
+
+    # REMOVED MOST METHODS, DUPLICATES ABOVE
     
     # -------------------------------------------------------------------------
-
-    def train_batch(self, batch: TorchData, epoch_idx: int, batch_idx: int) -> Union[torch.Tensor, Dict[str, Any]]:
-        batch = cast(Tuple[torch.Tensor, torch.Tensor], batch)
-        data, labels = batch
-
-        output = self.model(data)
-        loss = torch.nn.functional.cross_entropy(output, labels)
-
-        self.context.backward(loss)
-        self.context.step_optimizer(self.optimizer)
-
-        return {"loss": loss}
-
     # -------------------------------------------------------------------------
-
-    def evaluate_batch(self, batch: TorchData, batch_idx: int) -> Dict[str, Any]:
-        """
-        Calculate validation metrics for a batch and return them as a dictionary.
-        This method is not necessary if the user overwrites evaluate_full_dataset().
-        """
-        batch = cast(Tuple[torch.Tensor, torch.Tensor], batch)
-        data, labels = batch
-        output = self.model(data)
-
-        pred = output.argmax(dim=1, keepdim=True)
-        accuracy = pred.eq(labels.view_as(pred)).sum().item() / len(data)
-        return {"accuracy": accuracy}
-
     # -------------------------------------------------------------------------
-
-    def build_training_data_loader(self) -> DataLoader:
-        return DataLoader(self.train_dataset, batch_size=self.context.get_per_slot_batch_size())
-
     # -------------------------------------------------------------------------
-
-    def build_validation_data_loader(self) -> DataLoader:
-        return DataLoader(self.val_dataset, batch_size=self.context.get_per_slot_batch_size())
-
     # -------------------------------------------------------------------------
 
     def download_data(self, data_config, data_dir):
