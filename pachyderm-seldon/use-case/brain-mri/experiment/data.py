@@ -70,7 +70,9 @@ def get_train_val_datasets(download_dir, data_dir, seed, validation_ratio=0.2):
 
     full_dir = os.path.join(download_dir, data_dir)
 
-    for root, folders, files in  os.walk(full_dir):
+    print("full_dir = " + full_dir)
+
+    for download, data, root, folders, files in  os.walk(full_dir):
         for file in files:
             if 'mask' in file:
                 dirs.append(root.replace(full_dir, ''))
