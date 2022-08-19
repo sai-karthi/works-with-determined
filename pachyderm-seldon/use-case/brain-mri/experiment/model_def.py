@@ -28,7 +28,10 @@ class MRIUnetTrial(PyTorchTrial):
         print("download_dir = " + download_dir)
         print("data_dir = " + data_dir)
         print("HEYOOOOO")
-        des = self.download_data(data_config, download_dir)
+
+        full_dir = os.path.join(download_dir, data_dir)
+
+        des = self.download_data(data_config, full_dir)
 
         print(str(des))
         print("!!! Got here")
