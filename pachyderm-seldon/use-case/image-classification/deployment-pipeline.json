@@ -33,13 +33,13 @@
       },
       {
         "name": "pipeline-secret",
-        "key": "sel_url",
-        "env_var": "SEL_URL"
+        "key": "pac_token",
+        "env_var": "PAC_TOKEN"
       },
       {
         "name": "pipeline-secret",
-        "key": "pac_token",
-        "env_var": "PAC_TOKEN"
+        "key": "sel_url",
+        "env_var": "SEL_URL"
       },
       {
         "name": "pipeline-secret",
@@ -52,8 +52,10 @@
         "env_var": "SEL_NAMESPACE"
       }
     ]
-  },
+  }
 
-  "pod_patch": "[  {   \"op\": \"add\",   \"path\": \"/volumes/-\",   \"value\": {    \"name\": \"det-checkpoints\",    \"hostpath\": {     \"path\": \"/mapr_nfs/colo.edf.com/det-k8s/checkpoints\",     \"type\": \"Directory\"    }   }  },  {   \"op\": \"add\",   \"path\": \"/containers/0/volumeMounts/-\",   \"value\": {    \"mountPath\": \"/determined_shared_fs\",    \"name\": \"det-checkpoints\"   }  } ]"
+
+
 
 }
+#  "pod_patch": "[  {   \"op\": \"add\",   \"path\": \"/volumes/-\",   \"value\": {    \"name\": \"det-checkpoints\",    \"hostpath\": {     \"path\": \"/mapr_nfs/colo.edf.com/det-k8s/checkpoints\",     \"type\": \"Directory\"    }   }  },  {   \"op\": \"add\",   \"path\": \"/containers/0/volumeMounts/-\",   \"value\": {    \"mountPath\": \"/determined_shared_fs\",    \"name\": \"det-checkpoints\"   }  } ]"
