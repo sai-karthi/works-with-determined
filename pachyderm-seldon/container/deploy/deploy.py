@@ -36,9 +36,9 @@ def deploy(args, secrets):
 def create_client(secrets) -> ApiClient:
     print("hello? anyone home?")
     print("Connecting to Seldon at : " + secrets.seldon_url)
-    print(secrets)
+    print(str(secrets))
     config = Configuration()
-    print("01")
+    print("01" + config)
     config.host               = secrets.seldon_url + "/seldon-deploy/api/v1alpha1"
     print("02")
     config.oidc_client_id     = "sd-api"
@@ -288,13 +288,13 @@ class SecretInfo:
 
 def main():
     args    = parse_args()
-    print(args)
+    print("args: " + args)
     det     = DeterminedInfo()
-    print(det)
+    print("det: " + det)
     model   = ModelInfo("/pfs/data/model-info.yaml")
-    print(model)
+    print("model: " + model)
     secrets = SecretInfo()
-    print(secrets)
+    print("secrets: " + secrets)
 
     print(f"Starting pipeline: deploy-name='{args.deploy_name}', model='{model.name}', version='{model.version}'")
 
