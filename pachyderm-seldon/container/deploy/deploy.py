@@ -35,6 +35,7 @@ def deploy(args, secrets):
 
 def create_client(secrets) -> ApiClient:
     print("Connecting to Seldon at : " + secrets.seldon_url)
+    print(secrets)
     config = Configuration()
     print("01")
     config.host               = secrets.seldon_url + "/seldon-deploy/api/v1alpha1"
