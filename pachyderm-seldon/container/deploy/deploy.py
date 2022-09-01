@@ -50,11 +50,11 @@ def create_client(secrets) -> ApiClient:
     config.auth_method        = AuthMethod.CLIENT_CREDENTIALS
     print("06")
     config.verify_ssl         = False
-
+    print("07")
     # Authenticate against an OIDC provider
-    auth = OIDCAuthenticator(config)
-    config.id_token = auth.authenticate()
-    print("Connected.")
+    #auth = OIDCAuthenticator(config)
+    #config.id_token = auth.authenticate()
+    #print("Connected.")
 
     return ApiClient(config)
 
