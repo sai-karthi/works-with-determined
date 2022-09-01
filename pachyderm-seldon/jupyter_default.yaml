@@ -1,0 +1,23 @@
+#det template set jupyter_default jupyter_default.yaml
+
+
+
+bind_mounts:                                                                               
+- container_path: /run/determined/workdir/shared_fs                                        
+  host_path: /mnt/mapr_nfs/edf.ailab.local/determined/det_share                                                      
+  propagation: rprivate                                                                    
+  read_only: false
+- container_path: /determined_shared_fs
+  host_path: /mnt/mapr_nfs/edf.ailab.local/determined/det_checkpoints
+  propagation: rprivate
+  read_only: false                                                                         
+debug: false                                                                                                                                                                                                                                   
+idle_timeout: null                                                                         
+notebook_idle_type: kernels_or_terminals                                                   
+resources:                                                                                 
+  agent_label: ''                                                                          
+  devices: null                                                                            
+  resource_pool: kubernetes                                                                
+  slots: 0                                                                              
+  weight: 1                                                                                
+work_dir: null
