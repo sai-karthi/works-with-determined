@@ -34,6 +34,7 @@ def deploy(args, secrets):
 # =====================================================================================
 
 def create_client(secrets) -> ApiClient:
+    print("hello?")
     print("Connecting to Seldon at : " + secrets.seldon_url)
     print(secrets)
     config = Configuration()
