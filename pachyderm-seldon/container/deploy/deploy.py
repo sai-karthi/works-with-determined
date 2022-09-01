@@ -38,19 +38,12 @@ def create_client(secrets) -> ApiClient:
     print("Connecting to Seldon at : " + secrets.seldon_url)
     print(str(secrets))
     config = Configuration()
-    print("01" + config)
     config.host               = secrets.seldon_url + "/seldon-deploy/api/v1alpha1"
-    print("02")
     config.oidc_client_id     = "sd-api"
-    print("03")
     config.oidc_server        = secrets.seldon_url + "/auth/realms/deploy-realm"
-    print("04")
     config.oidc_client_secret = secrets.client_secret
-    print("05")
     config.auth_method        = AuthMethod.CLIENT_CREDENTIALS
-    print("06")
     config.verify_ssl         = False
-    print("07")
     # Authenticate against an OIDC provider
     #auth = OIDCAuthenticator(config)
     #config.id_token = auth.authenticate()
