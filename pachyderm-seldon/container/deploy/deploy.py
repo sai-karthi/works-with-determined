@@ -110,10 +110,13 @@ def create_deploy_descriptor(args, secrets, det, model):
                                             secret_name="deployment-secret"
                                         )
                                     ),
-                                    HostPathVolumeSource(
+                                    Volume(
                                         name="det-checkpoints",
-                                        path="/mnt/mapr_nfs/edf.ailab.local/determined/det_checkpoints"
+                                        host_path=HostPathVolumeSource(
+                                            path="/mnt/mapr_nfs/edf.ailab.local/determined/det_checkpoints"
+                                        )
                                     )
+                                    
 
 
                                 ]
