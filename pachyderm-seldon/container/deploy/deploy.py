@@ -302,7 +302,6 @@ def main():
 
     api_client = create_client(secrets)
 
-    print("api_client: " + api_client)
 
     if not deploy_model(api_client, args, secrets, det, model):
         return
