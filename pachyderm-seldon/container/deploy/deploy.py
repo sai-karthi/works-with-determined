@@ -9,7 +9,7 @@ from seldon_deploy_sdk import (
     PredictiveUnit, Parameter,
     DriftDetectorApi, DetectorConfigData, DetectorConfiguration, BasicDetectorConfiguration,
     DetectorDeploymentConfiguration,
-    OutlierDetectorApi, VolumeMount, Volume, SecretVolumeSource, EnvVar
+    OutlierDetectorApi, VolumeMount, Volume, SecretVolumeSource, EnvVar, HostPathVolumeSource
 )
 
 from seldon_deploy_sdk.auth import OIDCAuthenticator
@@ -95,7 +95,12 @@ def create_deploy_descriptor(args, secrets, det, model):
                                             VolumeMount(
                                                 name="config",
                                                 mount_path="/app/config"
+                                            ),
+                                            VolumeMount(
+                                                name="det-checkpoints",
+                                                mount_path="/determined_shared_fs"
                                             )
+
                                         ],
                                         env=[
                                             EnvVar(
@@ -111,7 +116,13 @@ def create_deploy_descriptor(args, secrets, det, model):
                                         secret=SecretVolumeSource(
                                             secret_name="deployment-secret"
                                         )
+                                    ),
+                                    HostPathVolumeSource(
+                                        name="det-checkpoints",
+                                        path="/mnt/mapr_nfs/edf.ailab.local/determined/det_checkpoints"
                                     )
+
+
                                 ]
                             )
                         )
