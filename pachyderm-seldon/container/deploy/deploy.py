@@ -298,7 +298,11 @@ def main():
 
     print(f"Starting pipeline: deploy-name='{args.deploy_name}', model='{model.name}', version='{model.version}'")
 
+
+
     api_client = create_client(secrets)
+
+    print(api_client)
 
     if not deploy_model(api_client, args, secrets, det, model):
         return
