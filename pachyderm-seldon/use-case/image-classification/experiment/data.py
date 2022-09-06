@@ -28,7 +28,8 @@ class CatDogDataset(Dataset):
         image = Image.fromarray(image)
         if self.transform:
             image = self.transform(image)
-        label = 0 if img_name.startswith('dog') else 1
+        #label = 0 if img_name.startswith('dog') else 1
+        label = 0 if "dog" in str(img_name) else 1
         sample = (image, label)
         # print(f"Loaded image: index='{idx}', name='{img_name}'")
         return sample
