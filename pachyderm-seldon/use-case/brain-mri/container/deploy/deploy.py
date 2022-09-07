@@ -296,10 +296,11 @@ def main():
     print(os.listdir())
     print(os.listdir("/pfs"))
     print(os.listdir("/pfs/data"))
+    print(os.listdir("/pfs/data/data"))
     print(os.listdir("/pfs/out"))
     
  
-    model   = ModelInfo("/pfs/data/model-info.yaml")
+    model   = ModelInfo("/pfs/data/data/model-info.yaml")
     secrets = SecretInfo()
 
     print(f"Starting pipeline: deploy-name='{args.deploy_name}', model='{model.name}', version='{model.version}'")
