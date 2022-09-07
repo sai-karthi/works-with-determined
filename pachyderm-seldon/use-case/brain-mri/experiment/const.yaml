@@ -48,4 +48,4 @@ profiling:
 #    read_only: False 
 checkpoint_storage:
   type: shared_fs
-  host_path: /mapr_nfs/colo.edf.com/det-k8s/checkpoints
+  host_path: /mnt/mapr_nfs/edf.ailab.local/determined/det_checkpoints
