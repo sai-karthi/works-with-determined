@@ -283,7 +283,7 @@ def main():
     print(args)
     det     = DeterminedInfo()
     print(det)
-    model   = ModelInfo("/pfs/data/model-info.yaml")
+    model   = ModelInfo("/pfs/out/model-info.yaml")
     print(model)
     secrets = SecretInfo()
     print(secrets)
