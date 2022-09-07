@@ -9,7 +9,7 @@ from seldon_deploy_sdk import (
     PredictiveUnit, Parameter,
     DriftDetectorApi, DetectorConfigData, DetectorConfiguration, BasicDetectorConfiguration,
     DetectorDeploymentConfiguration,
-    OutlierDetectorApi, VolumeMount, Volume, SecretVolumeSource, EnvVar
+    OutlierDetectorApi, VolumeMount, Volume, SecretVolumeSource, EnvVar, HostPathVolumeSource
 )
 
 from seldon_deploy_sdk.auth import OIDCAuthenticator
