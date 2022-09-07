@@ -293,9 +293,9 @@ def main():
     args    = parse_args()
     det     = DeterminedInfo()
     print("hello, made it here")
-    os.listdir()
-    os.listdir("/pfs")
-    print(str(det))
+    print(os.listdir())
+    print(os.listdir("/pfs"))
+    
  
     model   = ModelInfo("/pfs/data/model-info.yaml")
     secrets = SecretInfo()
