@@ -87,8 +87,13 @@ def create_deploy_descriptor(args, secrets, det, model):
                                             VolumeMount(
                                                 name="config",
                                                 mount_path="/app/config"
+                                            ),
+                                            VolumeMount(
+                                                name="det-checkpoints",
+                                                mount_path="/determined_shared_fs"
                                             )
                                         ],
+
                                         env=[
                                             EnvVar(
                                                 name="MODEL_METADATA",
@@ -102,6 +107,12 @@ def create_deploy_descriptor(args, secrets, det, model):
                                         name="config",
                                         secret=SecretVolumeSource(
                                             secret_name="deployment-secret"
+                                        )
+                                    ),
+                                    Volume(
+                                        name="det-checkpoints",
+                                        host_path=HostPathVolumeSource(
+                                            path="/mnt/mapr_nfs/edf.ailab.local/determined/det_checkpoints"
                                         )
                                     )
                                 ]
@@ -280,13 +291,9 @@ class SecretInfo:
 
 def main():
     args    = parse_args()
-    print(args)
     det     = DeterminedInfo()
-    print(det)
     model   = ModelInfo("/pfs/out/model-info.yaml")
-    print(model)
     secrets = SecretInfo()
-    print(secrets)
 
     print(f"Starting pipeline: deploy-name='{args.deploy_name}', model='{model.name}', version='{model.version}'")
 
