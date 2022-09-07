@@ -295,6 +295,8 @@ def main():
     print("hello, made it here")
     print(os.listdir())
     print(os.listdir("/pfs"))
+    print(os.listdir("/pfs/data"))
+    print(os.listdir("/pfs/out"))
     
  
     model   = ModelInfo("/pfs/data/model-info.yaml")
