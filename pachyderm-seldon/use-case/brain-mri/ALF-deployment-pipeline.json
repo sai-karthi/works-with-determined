@@ -6,7 +6,7 @@
   "input": {
     "pfs": {
       "name": "data",
-      "repo": "brain-mri-new",
+      "repo": "brain-mri-train",
       "branch": "master",
       "glob": "/"
     }
