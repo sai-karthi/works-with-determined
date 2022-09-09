@@ -93,8 +93,8 @@ def create_deploy_descriptor(args, secrets, det, model):
                                                 name="det-checkpoints",
                                                 mount_path="/determined_shared_fs"
                                             )
-
                                         ],
+
                                         env=[
                                             EnvVar(
                                                 name="MODEL_METADATA",
@@ -116,9 +116,6 @@ def create_deploy_descriptor(args, secrets, det, model):
                                             path="/mnt/mapr_nfs/edf.ailab.local/determined/det_checkpoints"
                                         )
                                     )
-                                    
-
-
                                 ]
                             )
                         )
@@ -301,10 +298,7 @@ def main():
 
     print(f"Starting pipeline: deploy-name='{args.deploy_name}', model='{model.name}', version='{model.version}'")
 
-
-
     api_client = create_client(secrets)
-
 
     if not deploy_model(api_client, args, secrets, det, model):
         return
