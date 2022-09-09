@@ -206,6 +206,12 @@ def write_model_info(file, model_name, model_version, pipeline, repo):
     model["pipeline"] = pipeline
     model["repo"]     = repo
 
+    print("Printing model-info.......")
+    print(model_name)
+    print(model_version)
+    print(pipeline)
+    print(repo)
+
     with open(file, "w") as stream:
         try:
             yaml.safe_dump(model, stream)
