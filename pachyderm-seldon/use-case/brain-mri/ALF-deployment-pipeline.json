@@ -14,7 +14,7 @@
   "transform": {
     "cmd": ["/bin/sh"],
     "stdin": ["python deploy.py --deploy-name brain-mri-deploy --detect-bucket-uri http://10.10.160.234:9000/pachyderm --detect-batch-size 4 --serving-image  10.10.160.143:9002/dog-cat/serve:0.0.1"],
-    "image": "10.10.160.143:9002/brain-mri/deploy:0.0.5",
+    "image": "10.10.160.143:9002/brain-mri/deploy:0.0.5a",
     "secrets": [ 
       {
         "name": "pipeline-secret",
