@@ -7,3 +7,4 @@ python_pachyderm==7.3.0
 
 # This is required to fix an issue with Flask
 Werkzeug==2.0.3
+pandas~=1.4.3
