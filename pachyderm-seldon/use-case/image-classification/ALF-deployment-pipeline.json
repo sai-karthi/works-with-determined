@@ -14,7 +14,7 @@
   "transform": {
     "cmd": ["/bin/sh"],
     "stdin": ["python deploy.py --deploy-name dogcat-deploy --detect-bucket-uri http://10.10.160.234:9000/pachyderm --detect-batch-size 4 --serving-image  10.10.160.143:9002/dog-cat/serve:0.0.1"],
-    "image": "10.10.160.143:9002/dog-cat/deploy:0.0.7",
+    "image": "10.10.160.143:9002/dog-cat/deploy:0.0.8",
     "secrets": [ 
       {
         "name": "pipeline-secret",
