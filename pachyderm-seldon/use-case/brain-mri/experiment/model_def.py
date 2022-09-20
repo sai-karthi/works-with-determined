@@ -47,28 +47,37 @@ class MRIUnetTrial(PyTorchTrial):
                 )
             except:
                 pass
+        
+        if training:
+            try:
+                if not os.path.exists(full_dir):
+                    os.makedirs(full_dir)
 
-        if not os.path.exists(full_dir):
-            os.makedirs(full_dir)
+                with filelock.FileLock(os.path.join(full_dir, "download.lock")):
+                    model = torch.hub.load(
+                        self.data_config["repo"],
+                        self.data_config["model"],
+                        in_channels=self.context.get_hparam("input_channels"),
+                        out_channels=self.context.get_hparam("output_channels"),
+                        init_features=self.context.get_hparam("init_features"),
+                        pretrained=self.context.get_hparam("pretrained"),
+                    )
 
-        with filelock.FileLock(os.path.join(full_dir, "download.lock")):
-            model = torch.hub.load(
-                self.data_config["repo"],
-                self.data_config["model"],
-                in_channels=self.context.get_hparam("input_channels"),
-                out_channels=self.context.get_hparam("output_channels"),
-                init_features=self.context.get_hparam("init_features"),
-                pretrained=self.context.get_hparam("pretrained"),
-            )
+                self.model = self.context.wrap_model(model)
+                self.optimizer = self.context.wrap_optimizer(
+                    optim.Adam(
+                        self.model.parameters(),
+                        lr=self.context.get_hparam("learning_rate"),
+                        weight_decay=self.context.get_hparam("weight_decay"),
+                    )
+                )
+            except:
+                pass
 
-        self.model = self.context.wrap_model(model)
-        self.optimizer = self.context.wrap_optimizer(
-            optim.Adam(
-                self.model.parameters(),
-                lr=self.context.get_hparam("learning_rate"),
-                weight_decay=self.context.get_hparam("weight_decay"),
-            )
-        )
+
+
+                
+
 
     def iou(self, pred, label):
         intersection = (pred * label).sum()
