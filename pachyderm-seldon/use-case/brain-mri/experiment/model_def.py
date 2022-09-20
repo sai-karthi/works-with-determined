@@ -64,10 +64,16 @@ class MRIUnetTrial(PyTorchTrial):
                 )
             except:
                 pass
-
-
-
-                
+        else:
+            model = torch.hub.load(
+                        self.data_config["repo"],
+                        self.data_config["model"],
+                        in_channels=self.context.get_hparam("input_channels"),
+                        out_channels=self.context.get_hparam("output_channels"),
+                        init_features=self.context.get_hparam("init_features"),
+                        pretrained=self.context.get_hparam("pretrained"),
+                    )
+            self.model = self.context.wrap_model(model)
 
 
     def iou(self, pred, label):
