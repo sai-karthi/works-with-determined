@@ -24,18 +24,9 @@ class MRIUnetTrial(PyTorchTrial):
             try:
                 download_dir = self.data_config["download_directory"]
                 data_dir = self.data_config["data_dir"]
-                print("download_dir = " + download_dir)
-                print("data_dir = " + data_dir)
-
                 full_dir = os.path.join(full_dir, download_dir.strip("/"), data_dir.strip("/"))
 
-                print("full_dir = " + full_dir)
-
                 des = self.download_data(self.data_config, download_dir)
-
-                print(str(des))
-                print(self.context.get_hparam("split_seed"))
-                print(self.context.get_hparam("validation_ratio"))
 
                 print("Download Directory = " + download_dir)
 

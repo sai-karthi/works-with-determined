@@ -78,22 +78,17 @@ def get_train_val_datasets(download_dir, data_dir, seed, validation_ratio=0.2):
                 masks.append(file)
                 images.append(file.replace("_mask", ""))
 
-    print(dirs)
-    print(images)
-    print(masks)
-
+    
     PathDF = pd.DataFrame({'directory': dirs,
                           'images': images,
                           'masks': masks})
 
-    print(PathDF)
-
+    
     train_df, valid_df = train_test_split(PathDF, random_state=seed,
                                      test_size = validation_ratio)
     
 
-    print("full_dir going in here is: " + full_dir)
-
+    
     train_data = MRI_Dataset(train_df, full_dir, transform=PairedToTensor())
     valid_data = MRI_Dataset(valid_df, full_dir, transform=PairedToTensor())
     
@@ -108,9 +103,7 @@ def download_pach_repo(pachyderm_host, pachyderm_port, repo, branch, root, token
 
     if not os.path.exists(root):
         os.makedirs(root)
-
-    print("Made it here")
-
+    
     client = python_pachyderm.Client(host=pachyderm_host, port=pachyderm_port, auth_token=token)
     files  = []
 
