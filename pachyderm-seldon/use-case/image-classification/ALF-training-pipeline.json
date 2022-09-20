@@ -44,3 +44,10 @@
 }
 
 
+kubectl delete deploy -n seldon seldon-sd-dogcat-deploy-drift-dogcat-deploy-00001-deployment
+kubectl delete deploy -n seldon seldon-sd-dogcat-deploy-outlier-dogcat-deploy-00001-deployment
+kubectl get all -n seldon
+kubectl get sdep -n seldon
+
+kubectl delete po -n seldon seldon-sd-dogcat-deploy-drift-dogcat-deploy-00001-deploymek2qzg
+
