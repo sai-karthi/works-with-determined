@@ -58,9 +58,10 @@ class ModelServer(object):
         logging.info(f"Received request : \n{X}")
 
         X = torch.from_numpy(X)
+        print(X)
 
         input_img = X.unsqueeze(0)
-
+        print(input_img)
         try:
             with torch.no_grad():
                 prediction = self.model(input_img)
@@ -68,6 +69,7 @@ class ModelServer(object):
             prediction = torch.round(prediction[0])
             logging.info(f"Prediction : {prediction}")
 
+            print("Made it here :)")
             prediction = prediction.numpy()
 
             return prediction
