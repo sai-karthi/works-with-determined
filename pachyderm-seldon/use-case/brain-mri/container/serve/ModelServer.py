@@ -54,7 +54,7 @@ class ModelServer(object):
     # -------------------------------------------------------------------------
 
     def predict(self, X: Union[np.ndarray, List, str, bytes, Dict], names: Optional[List[str]],
-                meta: Optional[Dict] = None) -> np.ndarray:
+                meta: Optional[Dict] = None) -> Union[np.ndarray, List, str, bytes, Dict]:
         logging.info(f"Received request : \n{X}")
 
         X = torch.FloatTensor(X)
@@ -75,11 +75,11 @@ class ModelServer(object):
             logging.info(f"Prediction : {prediction}")
 
             print("Made it here :)")
-            prediction = prediction.numpy()
+            #prediction = prediction.numpy()
             print(type(prediction))
 
-            return prediction
-
+            return prediction.astype(np.float)
+            
         except Exception as e:
             logging.warning(f"Raised error : {e}")
             return "???"
