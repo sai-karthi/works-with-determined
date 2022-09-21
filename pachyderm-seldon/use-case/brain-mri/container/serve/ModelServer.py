@@ -78,7 +78,10 @@ class ModelServer(object):
             prediction = prediction.numpy()
             print(type(prediction))
 
-            return prediction.astype(np.float)
+            prediction = prediction.tolist()
+            print(type(prediction))
+
+            return prediction
 
         except Exception as e:
             logging.warning(f"Raised error : {e}")
