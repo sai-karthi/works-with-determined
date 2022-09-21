@@ -75,7 +75,7 @@ class ModelServer(object):
             logging.info(f"Prediction : {prediction}")
 
             print("Made it here :)")
-            #prediction = prediction.numpy()
+            prediction = prediction.numpy()
             print(type(prediction))
 
             return prediction
