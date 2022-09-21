@@ -53,7 +53,7 @@ class ModelServer(object):
 
     # -------------------------------------------------------------------------
 
-    def predict(self, X: Union[np.ndarray, List, str, bytes, Dict]) -> Union[np.ndarray, List, str, bytes, Dict], names: Optional[List[str]],
+    def predict(self, X: Union[np.ndarray, List, str, bytes, Dict], names: Optional[List[str]],
                 meta: Optional[Dict] = None) -> Union[np.ndarray, List, str, bytes, Dict]:
         logging.info(f"Received request : \n{X}")
 
