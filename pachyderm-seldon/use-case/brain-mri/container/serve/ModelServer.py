@@ -68,7 +68,7 @@ class ModelServer(object):
             prediction = torch.round(prediction[0])
             logging.info(f"Prediction : {prediction}")
 
-            prediction = prediction.np()
+            prediction = prediction.numpy()
 
             return prediction
 
