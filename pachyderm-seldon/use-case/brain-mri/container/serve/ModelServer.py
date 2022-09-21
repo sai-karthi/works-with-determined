@@ -1,19 +1,18 @@
-import logging
 import os
 import time
-from typing import Dict, List, Optional, Union
+from typing import Dict, Union, List, Optional
 
-import numpy as np
-import torch
 from determined.common.experimental import ModelVersion
 from determined.experimental import Determined
 from determined.pytorch import load_trial_from_checkpoint_path
+import numpy as np
+import logging
+import torch
 
 logging.basicConfig()
 logging.getLogger().setLevel(logging.INFO)
 
 # =============================================================================
-
 
 class ModelServer(object):
     """
@@ -24,12 +23,12 @@ class ModelServer(object):
         logging.info(f"Loading model version '{model_name}/{model_version}' from master at '{det_master}'")
 
         # Credentials to download the checkpoint from the bucket
-        os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "config/service-account.json"
+        os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'config/service-account.json'
 
-        if os.environ["HOME"] == "/":
-            os.environ["HOME"] = "/app"
+        if os.environ['HOME'] == '/':
+            os.environ['HOME'] = '/app'
 
-        os.environ["SERVING_MODE"] = "true"
+        os.environ['SERVING_MODE'] = 'true'
 
         start = time.time()
         client = Determined(master=det_master, user=user, password=password)
@@ -40,7 +39,7 @@ class ModelServer(object):
         self.model = self.trial.model
         end = time.time()
         delta = end - start
-        logging.info(f"Checkpoint loaded in {delta} seconds")
+        logging.info(f'Checkpoint loaded in {delta} seconds')
 
     # -------------------------------------------------------------------------
 
@@ -54,8 +53,8 @@ class ModelServer(object):
 
     # -------------------------------------------------------------------------
 
-    def predict(self, X: Union[np.ndarray, List, str, bytes, Dict]) -> Union[np.ndarray, List, str, bytes, Dict]:
-
+    def predict(self, X: Union[np.ndarray, List, str, bytes, Dict]) -> Union[np.ndarray, List, str, bytes, Dict]Dict], names: Optional[List[str]],
+                meta: Optional[Dict] = None) -> Union[np.ndarray, List, str, bytes, Dict]:
         logging.info(f"Received request : \n{X}")
 
         input_img = X.unsqueeze(0)
