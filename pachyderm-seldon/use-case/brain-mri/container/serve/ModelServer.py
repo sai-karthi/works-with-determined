@@ -61,7 +61,7 @@ class ModelServer(object):
         print(X)
         X=X/255
         print("x/255: ")
-        print(x)
+        print(X)
 
         input_img = X.unsqueeze(0)
         print("unsqueezed: ")
