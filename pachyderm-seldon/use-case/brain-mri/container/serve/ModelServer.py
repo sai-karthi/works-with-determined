@@ -57,15 +57,20 @@ class ModelServer(object):
                 meta: Optional[Dict] = None) -> Union[np.ndarray, List, str, bytes, Dict]:
         logging.info(f"Received request : \n{X}")
 
-        X = torch.from_numpy(X)
+        X = torch.FloatTensor(X)
         print(X)
+        X=X/255
+        print("x/255: ")
+        print(x)
 
         input_img = X.unsqueeze(0)
+        print("unsqueezed: ")
         print(input_img)
         try:
             with torch.no_grad():
+                print("hello?")
                 prediction = self.model(input_img)
-
+            print("hello again?")
             prediction = torch.round(prediction[0])
             logging.info(f"Prediction : {prediction}")
 
