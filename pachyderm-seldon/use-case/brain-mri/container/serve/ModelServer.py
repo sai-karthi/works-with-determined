@@ -54,7 +54,7 @@ class ModelServer(object):
     # -------------------------------------------------------------------------
 
     def predict(self, X: Union[np.ndarray, List, str, bytes, Dict], names: Optional[List[str]],
-                meta: Optional[Dict] = None) -> Union[np.ndarray, List, str, bytes, Dict]:
+                meta: Optional[Dict] = None) -> np.ndarray:
         logging.info(f"Received request : \n{X}")
 
         X = torch.FloatTensor(X)
