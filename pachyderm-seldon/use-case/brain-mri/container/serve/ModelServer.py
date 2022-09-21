@@ -76,6 +76,7 @@ class ModelServer(object):
 
             print("Made it here :)")
             prediction = prediction.numpy()
+            print(type(prediction))
 
             return prediction
 
