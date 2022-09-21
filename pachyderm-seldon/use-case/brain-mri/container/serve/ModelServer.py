@@ -57,6 +57,8 @@ class ModelServer(object):
                 meta: Optional[Dict] = None) -> Union[np.ndarray, List, str, bytes, Dict]:
         logging.info(f"Received request : \n{X}")
 
+        X = torch.from_numpy(X)
+
         input_img = X.unsqueeze(0)
 
         try:
@@ -66,11 +68,16 @@ class ModelServer(object):
             prediction = torch.round(prediction[0])
             logging.info(f"Prediction : {prediction}")
 
+            prediction = prediction.np()
+
             return prediction
 
         except Exception as e:
             logging.warning(f"Raised error : {e}")
             return "???"
+        
+
+
 
 
 # =============================================================================
