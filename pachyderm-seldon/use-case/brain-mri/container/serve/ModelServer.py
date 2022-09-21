@@ -75,11 +75,11 @@ class ModelServer(object):
             logging.info(f"Prediction : {prediction}")
 
             print("Made it here :)")
-            #prediction = prediction.numpy()
+            prediction = prediction.numpy()
             print(type(prediction))
 
             return prediction.astype(np.float)
-            
+
         except Exception as e:
             logging.warning(f"Raised error : {e}")
             return "???"
