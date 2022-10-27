@@ -1,12 +1,12 @@
 {
   "pipeline": {
-    "name": "dogs-and-cats-model"
+    "name": "new-model"
   },
   "description": "Detects changed files into a repository and triggers a retraining on that dataset",
   "input": {
     "pfs": {
       "name": "data",
-      "repo": "dogs-and-cats",
+      "repo": "new",
       "branch": "master",
       "glob": "/",
       "empty_files": true
