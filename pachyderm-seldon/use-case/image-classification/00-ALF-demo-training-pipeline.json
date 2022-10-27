@@ -14,7 +14,7 @@
   },  
   "transform": {
     "cmd": ["/bin/sh"],
-    "stdin": ["python train.py --git-url https://git@github.com:/JordanNanos/works-with-determined.git --git-ref master --sub-dir pachyderm-seldon/use-case/image-classification/experiment --config const.yaml --repo new --model new"],
+    "stdin": ["python train.py --git-url https://git@github.com:/JordanNanos/works-with-determined.git --git-ref master --sub-dir pachyderm-seldon/use-case/image-classification/experiment --config 00-new-const.yaml --repo new --model new"],
     "image": "10.10.160.143:9002/dog-cat/train:0.0.1",
     "secrets": [
       {
