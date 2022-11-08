@@ -1,8 +1,8 @@
-name: MRI-test1-on-prem-1GPU
-workspace: nanos 
-project: brain-mri
+name: MRI-test1-4GPU
+workspace: Sai  
+project: sai-brain-mri
 data:
-  data_dir:  '/data'
+  data_dir:  '/kaggle_3m'
   repo: 'mateuszbuda/brain-segmentation-pytorch'
   model: 'unet'
   download_directory: '/tmp'
@@ -33,7 +33,7 @@ min_validation_period:
   epochs: 1
 resources:
 #  resource_pool: compute-pool-on-prem
-  slots_per_trial: 1
+  slots_per_trial: 4
 max_restarts: 0
 entrypoint: model_def:MRIUnetTrial
 profiling:
