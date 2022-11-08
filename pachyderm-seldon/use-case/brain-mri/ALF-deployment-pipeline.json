@@ -6,7 +6,7 @@
   "input": {
     "pfs": {
       "name": "kaggle_3m",
-      "repo": "sai-brain-mri-new",
+      "repo": "sai-brain-mri-train",
       "branch": "master",
       "glob": "/"
     }
