@@ -1,4 +1,4 @@
-name: MRI-test1-4GPU
+name: MRI-Saitest-GPU
 workspace: Sai  
 project: sai-brain-mri
 data:
@@ -33,7 +33,7 @@ min_validation_period:
   epochs: 1
 resources:
 #  resource_pool: compute-pool-on-prem
-  slots_per_trial: 4
+  slots_per_trial: 1
 max_restarts: 0
 entrypoint: model_def:MRIUnetTrial
 profiling:

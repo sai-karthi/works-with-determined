@@ -6,7 +6,7 @@
   "input": {
     "pfs": {
       "name": "kaggle_3m",
-      "repo": "sai-brain-mri-new",
+      "repo": "sai-brain-mri-latest",
       "branch": "master",
       "glob": "/",
       "empty_files": true
@@ -14,7 +14,7 @@
   },  
   "transform": {
     "cmd": ["/bin/sh"],
-    "stdin": ["python train.py --git-url https://git@github.com:/sai-karthi/works-with-determined.git --git-ref master --sub-dir pachyderm-seldon/use-case/brain-mri/experiment --config const.yaml --repo sai-brain-mri-new --model brain-mri"],
+    "stdin": ["python train.py --git-url https://git@github.com:/sai-karthi/works-with-determined.git --git-ref master --sub-dir pachyderm-seldon/use-case/brain-mri/experiment --config const.yaml --repo sai-brain-mri-latest --model brain-mri"],
     "image": "10.10.160.143:9002/brain-mri/train:0.0.2",
     "secrets": [
       {
