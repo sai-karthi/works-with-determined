@@ -1,4 +1,15 @@
 name: word_language_modeling_const
+workspace: Sai
+project: sai-nlp
+data:
+  data_dir:  '/data'  
+  download_directory: '/tmp'
+  pachyderm:
+    host:
+    port:
+    repo:
+    branch:
+    token:
 hyperparameters:
     global_batch_size: 20
     eval_batch_size: 10
@@ -17,6 +28,7 @@ hyperparameters:
     # LSTM/GRU Model Only Hyperparameters
     # tied: False
 resources:
+    resource_pool: mig    
     slots_per_trial: 1
 records_per_epoch: 59660
 searcher:
@@ -32,7 +44,12 @@ data:
     bind_mount_path: /data
     use_cache: True
 entrypoint: model_def:WordLanguageModelTrial
-bind_mounts:
-    - host_path: /tmp
-      container_path: /data
-      read_only: false
+profiling:
+  enabled: True
+  #bind_mounts:
+  #  - host_path: /tmp
+  #    container_path: /data
+  #    read_only: false
+checkpoint_storage:
+  type: shared_fs
+  host_path: /mnt/mapr_nfs/edf.ailab.local/determined/det_checkpoints
