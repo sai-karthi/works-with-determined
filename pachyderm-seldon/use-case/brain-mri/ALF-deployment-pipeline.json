@@ -5,7 +5,7 @@
   "description": "Deploys a model into production via the Seldon Deploy REST APIs.",
   "input": {
     "pfs": {
-      "name": "kaggle_3m",
+      "name": "split",
       "repo": "sai-brain-mri-train",
       "branch": "master",
       "glob": "/"
